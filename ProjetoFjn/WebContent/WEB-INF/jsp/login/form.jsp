@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Página de Login</title>
+<title>PÃ¡gina de Login</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript">
@@ -23,6 +23,7 @@
 
 </head>
 <body style="background-color: #eee;">
+teste
 	<div class="container">
     		<p><br/></p>
     		<p><br/></p>
@@ -33,12 +34,12 @@
   				<div class="panel panel-default">
   					<div class="panel-body">
     						<div class="page-header">
-  							<h3>Área de Login</h3>
+  							<h3>Ãrea de Login</h3>
 						</div>
 						<form action="${linkTo[loginController].login}" role="form" method="post">
   							<div class="form-group">
   							<p id="aviso" style="color: red;">${message}</p>
-    								<label for="exampleInputEmail1">Nome de Usuário: </label>
+    								<label for="exampleInputEmail1">Nome de UsuÃ¡rio: </label>
     								<div class="input-group">
   									<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
   									<input type="text" class="form-control" id="nomeUser" name="usuario.nome"  placeholder="Nome...">
