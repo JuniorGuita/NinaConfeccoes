@@ -1,0 +1,20 @@
+@CHARSET "ISO-8859-1";
+#topo{
+	background-color: #ccc;
+	height: 100px;
+	line-height: 80px;
+	border: 1px solid #ccc;
+}
+#logo{
+	font-size: 30px;
+}
+#logo a:hover, #sairSessao a:hover{
+	text-decoration: none;
+}
+#menu{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#container{
+	border: 1px solid #ccc;
+}
