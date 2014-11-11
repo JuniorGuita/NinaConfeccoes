@@ -23,7 +23,6 @@
 
 </head>
 <body style="background-color: #eee;">
-teste
 	<div class="container">
     		<p><br/></p>
     		<p><br/></p>
