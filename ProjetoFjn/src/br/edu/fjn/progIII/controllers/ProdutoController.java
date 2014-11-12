@@ -10,6 +10,11 @@ import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.dao.ProdutoDAO;
 import br.edu.fjn.progIII.model.Produto;
 
+/*
+ * 
+ * @author Antonio Siqueira
+ */
+
 @Controller
 @Path("produto")
 public class ProdutoController {

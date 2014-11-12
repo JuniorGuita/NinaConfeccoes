@@ -4,6 +4,10 @@ import javax.persistence.EntityManager;
 
 import br.edu.fjn.progIII.conexao.FabricaConexao;
 import br.edu.fjn.progIII.model.Cliente;
+/*
+ * 
+ * @author Antonio Siqueira
+ */
 
 public class ClienteDAO {
 

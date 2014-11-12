@@ -4,6 +4,11 @@ import javax.persistence.EntityManager;
 import br.edu.fjn.progIII.conexao.FabricaConexao;
 import br.edu.fjn.progIII.model.Produto;
 
+/*
+ * 
+ * @author Antonio Siqueira
+ */
+
 public class ProdutoDAO {
 	
 	public void salvaProduto(Produto produto) {

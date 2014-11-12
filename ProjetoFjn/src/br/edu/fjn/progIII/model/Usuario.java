@@ -9,6 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+/*
+ * 
+ * @author Antonio Siqueira
+ */
+
 @Entity
 public class Usuario implements Serializable{
 	

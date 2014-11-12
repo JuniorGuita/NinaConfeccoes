@@ -7,6 +7,11 @@ import javax.inject.Named;
 
 import br.edu.fjn.progIII.model.Usuario;
 
+/*
+ * 
+ * @author Antonio Siqueira
+ */
+
 @SessionScoped
 @Named("sessionUser")
 public class UserSession implements Serializable {
@@ -21,5 +26,9 @@ public class UserSession implements Serializable {
 		this.usuario = usuario;
 	}
 	
+	public boolean isLogged(){
+		System.out.println("user session - " + usuario);
+		return usuario!=null;
+	}
 }
 

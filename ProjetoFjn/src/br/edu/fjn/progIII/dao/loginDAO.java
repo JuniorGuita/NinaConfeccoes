@@ -10,6 +10,11 @@ import org.hibernate.criterion.Restrictions;
 import br.edu.fjn.progIII.conexao.FabricaConexao;
 import br.edu.fjn.progIII.model.Usuario;
 
+/*
+ * 
+ * @author Antonio Siqueira
+ */
+
 public class loginDAO {
 	
 	public boolean validarLogin(String nome, String pass){

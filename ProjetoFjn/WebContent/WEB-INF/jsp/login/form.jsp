@@ -3,9 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta charset="UTF-8/">
-<title>Página de Login</title>
+<meta name="author" content="Antonio Siqueira" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Login</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript">
@@ -34,12 +34,12 @@
   				<div class="panel panel-default">
   					<div class="panel-body">
     						<div class="page-header">
-  							<h3>Área de Login</h3>
+  							<h3>Painel de Login</h3>
 						</div>
 						<form action="${linkTo[loginController].login}" role="form" method="post">
   							<div class="form-group">
   							<p id="aviso" style="color: red;">${message}</p>
-    								<label for="exampleInputEmail1">Nome de Usuário: </label>
+    								<label for="exampleInputEmail1">Nome de Usu�rio: </label>
     								<div class="input-group">
   									<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
   									<input type="text" class="form-control" id="nomeUser" name="usuario.nome"  placeholder="Nome...">

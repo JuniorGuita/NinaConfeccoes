@@ -5,6 +5,11 @@ import javax.persistence.EntityManager;
 import br.edu.fjn.progIII.conexao.FabricaConexao;
 import br.edu.fjn.progIII.model.Usuario;
 
+/*
+ * 
+ * @author Antonio Siqueira
+ */
+
 public class UsuarioDAO {
 	
 	public void salvaUsuario(Usuario usuario) {

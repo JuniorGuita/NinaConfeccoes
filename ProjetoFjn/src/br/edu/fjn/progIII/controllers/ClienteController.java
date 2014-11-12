@@ -10,6 +10,11 @@ import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.dao.ClienteDAO;
 import br.edu.fjn.progIII.model.Cliente;
 
+/*
+ * 
+ * @author Antonio Siqueira
+ */
+
 @Controller
 @Path("cliente")
 public class ClienteController {

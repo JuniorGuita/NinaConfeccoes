@@ -10,6 +10,11 @@ import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.dao.UsuarioDAO;
 import br.edu.fjn.progIII.model.Usuario;
 
+/*
+ * 
+ * @author Antonio Siqueira
+ */
+
 @Controller
 @Path("usuario")
 public class usuarioController {

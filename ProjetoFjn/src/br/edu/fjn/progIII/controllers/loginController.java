@@ -10,6 +10,11 @@ import br.edu.fjn.progIII.componentes.UserSession;
 import br.edu.fjn.progIII.dao.loginDAO;
 import br.edu.fjn.progIII.model.Usuario;
 
+/*
+ * 
+ * @author Antonio Siqueira
+ */
+
 @Controller
 public class loginController {
 	
@@ -38,7 +43,7 @@ public class loginController {
 	
 	@Get("sair")
 	public void logout(){
-		userSession = null;
+		userSession.setUsuario(null);
 		result.redirectTo(loginController.class).form();
 	}
 }
