@@ -10,13 +10,13 @@
 </head>
 <body>
 	
-
 	<%@include file="../includes/includeTopo.jsp" %>
+	<div class="container">
 	<form class="form-horizontal" action="${linkTo[ClienteController].salvar()}" method="post">
-		<fieldset>
+
 
 			<!-- Form Name -->
-			<legend>Cadastro de Usuários</legend>
+			<legend>Cadastro de Clientes</legend>
 
 			<!-- Text input-->
 			<div class="form-group">
@@ -120,7 +120,7 @@
 
 				</div>
 			</div>
-
+<div class="row">
 			<!-- Button -->
 			<div class="control-group">
 				<div class="col-md-12 text-right">
@@ -129,10 +129,10 @@
 						<p style="color: green;">${message}</p>
 				</div>
 			</div>
+</div>
 
-		</fieldset>
 	</form>
-
+</div>
 
 </body>
 </html>

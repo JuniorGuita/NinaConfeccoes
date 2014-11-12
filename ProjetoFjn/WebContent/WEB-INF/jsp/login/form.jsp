@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="UTF-8/">
 <title>Página de Login</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">

@@ -38,6 +38,7 @@ public class loginController {
 	
 	@Get("sair")
 	public void logout(){
+		userSession = null;
 		result.redirectTo(loginController.class).form();
 	}
 }

@@ -18,7 +18,8 @@
 			<div id="logo" class="col-md-8"><a href="${linkTo[indexController].index()}">LOGOMARCA</a></div>
 			<div id="sairSessao" class="col-md-4">Usuário Logado: ${sessionUser.usuario.nome }  - <a href="${linkTo[loginController].logout()}">sair</a></div>
 		</div>
-
+		
+<div class="row">
 		<div id="menu" class="dropdown">
 			<button class="btn dropdown-toggle" type="button"
 				data-toggle="dropdown">
@@ -27,7 +28,12 @@
 			<ul class="dropdown-menu">
 				<li><a href="${linkTo[ClienteController].form()}">Clientes</a></li>
 				<li><a href="#">Fornecedores</a></li>
-				<li><a href="#">Produtos</a></li>
+				<li><a href="${linkTo[ProdutoController].form()}">Produtos</a></li>
 				<li><a href="${linkTo[usuarioController].form()}">Usuários</a></li>
 			</ul>
 		</div>
+</div>
+		
+		
+	
+</div>

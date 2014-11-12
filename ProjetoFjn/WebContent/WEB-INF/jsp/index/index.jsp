@@ -9,7 +9,7 @@
 <body>
 	
 		<%@include file="../includes/includeTopo.jsp"%>
-
-	</div>
+	
+	
 </body>
 </html>

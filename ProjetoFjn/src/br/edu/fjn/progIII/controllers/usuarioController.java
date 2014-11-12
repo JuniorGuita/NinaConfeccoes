@@ -24,9 +24,17 @@ public class usuarioController {
 	
 	@Post
 	public void salvar(Usuario usuario){
-		UsuarioDAO salvar = new UsuarioDAO();
-		salvar.salvaUsuario(usuario);
-		result.include("message", "Usuário "+usuario.getNome() + " incluído com sucesso!");
+		try {
+			UsuarioDAO salvar = new UsuarioDAO();
+			salvar.salvaUsuario(usuario);
+			result.include("status", true);
+			result.include("message", "Usuário Salvo!");
+			result.include("classeCss", "alert alert-success");
+		} catch (Exception e) {
+			result.include("status", false);
+			result.include("message", "Não foi possível salvar o usuário!");
+			result.include("classeCss", "alert alert-warning");
+		}
 		result.redirectTo(this).form();
 	}
 }

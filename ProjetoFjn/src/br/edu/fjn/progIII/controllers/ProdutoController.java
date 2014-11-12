@@ -7,13 +7,13 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import br.edu.fjn.progIII.dao.ClienteDAO;
-import br.edu.fjn.progIII.model.Cliente;
+import br.edu.fjn.progIII.dao.ProdutoDAO;
+import br.edu.fjn.progIII.model.Produto;
 
 @Controller
-@Path("cliente")
-public class ClienteController {
-
+@Path("produto")
+public class ProdutoController {
+	
 	@Inject
 	private Result result;
 	
@@ -23,10 +23,10 @@ public class ClienteController {
 	}
 	
 	@Post
-	public void salvar(Cliente cliente){
-		ClienteDAO salvar = new ClienteDAO();
-		salvar.salvaCliente(cliente);
-		result.include("message", "Cliente "+cliente.getNome() + " incluído com sucesso!");
+	public void salvar(Produto produto){
+		ProdutoDAO produtoDao = new ProdutoDAO();
+		produtoDao.salvaProduto(produto);
+		result.include("message", "Produto " + produto.getNome() + " salvo com sucesso!");
 		result.redirectTo(this).form();
 	}
 }

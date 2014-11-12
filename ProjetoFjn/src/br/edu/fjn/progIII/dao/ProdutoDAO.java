@@ -1,19 +1,17 @@
 package br.edu.fjn.progIII.dao;
 
 import javax.persistence.EntityManager;
-
 import br.edu.fjn.progIII.conexao.FabricaConexao;
-import br.edu.fjn.progIII.model.Usuario;
+import br.edu.fjn.progIII.model.Produto;
 
-public class UsuarioDAO {
+public class ProdutoDAO {
 	
-	public void salvaUsuario(Usuario usuario) {
+	public void salvaProduto(Produto produto) {
 		EntityManager manager = FabricaConexao.getGerenciador();
 		manager.getTransaction().begin();
-
-		try {
-					
-			manager.persist(usuario);
+		
+		try {			
+			manager.persist(produto);
 			manager.getTransaction().commit();
 		} catch (NullPointerException e) {
 			manager.getTransaction().rollback();
@@ -22,11 +20,5 @@ public class UsuarioDAO {
 		} finally {
 			manager.close();
 		}
-
-		
-	}
-	
-	
-	
-	
+	}	
 }
