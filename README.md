@@ -24,7 +24,6 @@ Requisítos para construção da aplicação:
 
 - Não devem utilizar Scriptlet
 
-<<<<<<< HEAD
 
 Como a aplicação tem um interceptador e só abre originalmente na tela de login, aqui está o link do sql do banco ja criado com um usuário padrão.
 
@@ -34,13 +33,3 @@ Usuário: admin
 Senha: admin
 
 Só baixar e importar para o postgre.
-=======
-Como a aplicação tem um interceptador e só abre originalmente na tela de login, aqui está o link do sql do banco ja criado com um usuário padrão.
-
-https://www.dropbox.com/s/khiwzhycdd8l7ik/projetoFjn.sql?dl=0
-
-Usuário: admin
-Senha: admin
-
-Só baixar e importar para o postgre.
->>>>>>> branch 'master' of https://github.com/JuniorGuita/NinaConfeccoes.git
