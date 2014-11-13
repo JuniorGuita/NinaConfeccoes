@@ -13,7 +13,6 @@
 	<div class="container">
 		<form class="form-horizontal"
 			action="${linkTo[usuarioController].salvar()}" method="post">
-			<fieldset>
 
 				<!-- Form Name -->
 				<legend>Cadastrar Usuário</legend>
@@ -70,8 +69,6 @@
 						</div>
 					</div>
 				</div>
-
-			</fieldset>
 		</form>
 	</div>
 	<%@include file="../includes/includeFooter.jsp"%>
