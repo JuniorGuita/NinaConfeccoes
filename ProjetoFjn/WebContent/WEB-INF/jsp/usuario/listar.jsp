@@ -18,7 +18,6 @@
 			<div class="panel panel-default">
 				<!-- Default panel contents -->
 				<div class="panel-heading">Listagem</div>
-
 				<!-- Table -->
 				<table class="table">
 					<thead>
