@@ -27,8 +27,11 @@ public class UserSession implements Serializable {
 	}
 	
 	public boolean isLogged(){
-		System.out.println("user session - " + usuario);
 		return usuario!=null;
+	}
+	
+	public void logout(){
+		usuario = null;
 	}
 }
 

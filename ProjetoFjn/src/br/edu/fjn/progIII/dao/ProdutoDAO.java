@@ -1,8 +1,17 @@
 package br.edu.fjn.progIII.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
+
 import br.edu.fjn.progIII.conexao.FabricaConexao;
 import br.edu.fjn.progIII.model.Produto;
+import br.edu.fjn.progIII.model.Usuario;
 
 /*
  * 
@@ -10,12 +19,12 @@ import br.edu.fjn.progIII.model.Produto;
  */
 
 public class ProdutoDAO {
-	
+
 	public void salvaProduto(Produto produto) {
 		EntityManager manager = FabricaConexao.getGerenciador();
 		manager.getTransaction().begin();
-		
-		try {			
+
+		try {
 			manager.persist(produto);
 			manager.getTransaction().commit();
 		} catch (NullPointerException e) {
@@ -25,5 +34,16 @@ public class ProdutoDAO {
 		} finally {
 			manager.close();
 		}
-	}	
+	}
+
+	public List<Produto> listarProdutos(Produto produtoList) {
+		EntityManager manager = FabricaConexao.getGerenciador();
+		Session session = (Session) manager.getDelegate();
+
+		Criteria criteria = session.createCriteria(Produto.class);
+
+		return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+				.list();
+	}
+
 }

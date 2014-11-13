@@ -27,6 +27,13 @@ public class usuarioController {
 		
 	}
 	
+	@Get("list")
+	public void listar(Usuario usuarioList){
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		result.include("listarUsuarios", usuarioDAO.listarUsuarios(usuarioList));
+	}
+	
+	
 	@Post
 	public void salvar(Usuario usuario){
 		try {
