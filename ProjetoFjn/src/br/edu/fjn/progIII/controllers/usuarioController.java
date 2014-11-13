@@ -33,11 +33,11 @@ public class usuarioController {
 			UsuarioDAO salvar = new UsuarioDAO();
 			salvar.salvaUsuario(usuario);
 			result.include("status", true);
-			result.include("message", "Usu·rio Salvo!");
+			result.include("message", "Usu√°rio Salvo!");
 			result.include("classeCss", "alert alert-success");
 		} catch (Exception e) {
 			result.include("status", false);
-			result.include("message", "N„o foi possÌvel salvar o usu·rio!");
+			result.include("message", "N√£o foi poss√≠vel salvar o usu√°rio!");
 			result.include("classeCss", "alert alert-warning");
 		}
 		result.redirectTo(this).form();

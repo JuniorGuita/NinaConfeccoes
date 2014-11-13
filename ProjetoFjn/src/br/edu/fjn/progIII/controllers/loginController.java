@@ -36,7 +36,7 @@ public class loginController {
 			userSession.setUsuario(usuario);
 			result.redirectTo(indexController.class).index();
 		}else{
-			result.include("message", "Usu·rio ou senha inv·lidos");
+			result.include("message", "Usu√°rio ou senha inv√°lidos");
 			result.redirectTo(this).form();
 		}	
 	}
