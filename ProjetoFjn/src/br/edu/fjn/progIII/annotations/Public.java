@@ -5,8 +5,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.METHOD, ElementType.TYPE })
+@Retention(RetentionPolicy.RUNTIME)  //informação gerada e armazenada pelo controlador em tempo de execução
+@Target({ ElementType.METHOD, ElementType.TYPE })   // o alvo tanto em método como em uma classe
 public @interface Public {
 
 }

@@ -6,6 +6,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.edu.fjn.progIII.annotations.Public;
 import br.edu.fjn.progIII.componentes.UserSession;
 import br.edu.fjn.progIII.dao.loginDAO;
 import br.edu.fjn.progIII.model.Usuario;
@@ -24,11 +25,13 @@ public class loginController {
 	@Inject
 	private UserSession userSession;
 	
+	@Public
 	@Get("/")
 	public void form(){
 		
 	}
 	
+	@Public
 	@Post("login")
 	public void login(Usuario usuario){
 		loginDAO loginDao = new loginDAO();
@@ -43,7 +46,7 @@ public class loginController {
 	
 	@Get("sair")
 	public void logout(){
-		userSession.setUsuario(null);
+		userSession.logout();
 		result.redirectTo(loginController.class).form();
 	}
 }

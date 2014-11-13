@@ -1,4 +1,4 @@
-/*package br.edu.fjn.progIII.intercepts;
+package br.edu.fjn.progIII.intercepts;
 
 import javax.inject.Inject;
 
@@ -40,7 +40,6 @@ public class AuthenticationIntercept implements Interceptor {
 	@Override
 	public void intercept(InterceptorStack is, ControllerMethod cm,
 			Object object) throws InterceptionException {
-		System.out.println("oi interceptor intercept");
 		if (userSession.isLogged()){  
             is.next(cm, object);
 		} else {
@@ -50,4 +49,3 @@ public class AuthenticationIntercept implements Interceptor {
 	}
 
 }
-*/
