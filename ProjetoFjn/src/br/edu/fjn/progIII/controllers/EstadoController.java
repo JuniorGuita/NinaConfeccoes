@@ -21,8 +21,9 @@ public class EstadoController {
 	@Get("json")
 	public void json() {
 		EstadoDAO estadoDAO = new EstadoDAO();
-		List<Estado> estados = estadoDAO.getEstados();
-		System.out.println(estados);
-		result.include("json", estados);
+		estadoDAO.getEstados();
+		
+		
+		result.include("json", "Estados em JSON ");
 	}
 }
