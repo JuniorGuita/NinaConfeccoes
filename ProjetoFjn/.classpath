@@ -25,6 +25,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/postgresql-9.1-901.jdbc3.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/unobre/Documentos/Uelio/FJN/hibernate-validator-cdi-5.1.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Junior Siqueira/Fjn/4º Semestre/Programação III/lib-vraptor/lib/hibernate-validator-cdi-5.1.1.Final.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
