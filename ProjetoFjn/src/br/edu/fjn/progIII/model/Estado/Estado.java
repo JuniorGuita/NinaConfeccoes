@@ -1,15 +1,10 @@
-package br.edu.fjn.progIII.model;
+package br.edu.fjn.progIII.model.Estado;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 /*
@@ -18,19 +13,15 @@ import javax.persistence.SequenceGenerator;
  */
 
 @Entity
-public class Cidade {
+public class Estado {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cidade_seq")
-	@SequenceGenerator(name = "cidade_seq", sequenceName = "cidade_seq", initialValue = 1, allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estado_seq")
+	@SequenceGenerator(name = "estado_seq", sequenceName = "estado_seq", initialValue = 1, allocationSize = 1)
 	private Integer id;
 	
 	@Column(nullable = false)
-	private String cidade;
-	
-	@JoinColumn
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER) //tirar o cascade
-	private Estado estado;
+	private String estado;
 
 	public Integer getId() {
 		return id;
@@ -40,19 +31,11 @@ public class Cidade {
 		this.id = id;
 	}
 
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	public Estado getEstado() {
+	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Estado estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
@@ -60,7 +43,6 @@ public class Cidade {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((cidade == null) ? 0 : cidade.hashCode());
 		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
@@ -74,12 +56,7 @@ public class Cidade {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cidade other = (Cidade) obj;
-		if (cidade == null) {
-			if (other.cidade != null)
-				return false;
-		} else if (!cidade.equals(other.cidade))
-			return false;
+		Estado other = (Estado) obj;
 		if (estado == null) {
 			if (other.estado != null)
 				return false;
@@ -92,7 +69,6 @@ public class Cidade {
 			return false;
 		return true;
 	}
-	
 	
 	
 }

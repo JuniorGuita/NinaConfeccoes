@@ -1,4 +1,4 @@
-package br.edu.fjn.progIII.model;
+package br.edu.fjn.progIII.model.Cliente;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+
+import br.edu.fjn.progIII.model.Endereco.Endereco;
 
 /*
  * 

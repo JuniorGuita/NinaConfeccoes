@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-import br.edu.fjn.progIII.model.Usuario;
+import br.edu.fjn.progIII.model.Usuario.Usuario;
 
 /*
  * 

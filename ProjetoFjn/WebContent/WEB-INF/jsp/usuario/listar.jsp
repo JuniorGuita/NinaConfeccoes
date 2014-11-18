@@ -1,17 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta name="author" content="Antonio Siqueira" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Usuários Cadastrados</title>
+<jsp:include page="../index/menu.jsp">
+   <jsp:param value="Lista de Usuários" name="title"/>
+</jsp:include>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 </head>
 <body>
-
-
-	<%@include file="../includes/includeTopo.jsp"%>
 	<div class="container">
 		<legend>Lista de Usuários Cadastrados</legend>
 		<div class="row">
@@ -38,7 +30,7 @@
 								<td>${usuario.nome}</td>
 								<td>${usuario.pass}</td>
 								<td><span class="glyphicon glyphicon-pencil"></span></td>
-								<td><span class="glyphicon glyphicon-trash"></span></td>
+								<td><a href="${linkTo[usuarioController].deletar(usuario.id)}"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>
 
 						</c:forEach>
@@ -51,6 +43,6 @@
 		</div>
 	</div>
 
-	<%@include file="../includes/includeFooter.jsp"%>
+	<%@include file="../index/footer.jsp"%>
 </body>
 </html>

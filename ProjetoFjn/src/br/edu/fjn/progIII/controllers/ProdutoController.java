@@ -10,8 +10,8 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.dao.ProdutoDAO;
 import br.edu.fjn.progIII.dao.UsuarioDAO;
-import br.edu.fjn.progIII.model.Produto;
-import br.edu.fjn.progIII.model.Usuario;
+import br.edu.fjn.progIII.model.Produto.Produto;
+import br.edu.fjn.progIII.model.Usuario.Usuario;
 
 /*
  * 
@@ -21,28 +21,35 @@ import br.edu.fjn.progIII.model.Usuario;
 @Controller
 @Path("produto")
 public class ProdutoController {
-	
+
 	@Inject
 	private Result result;
-	
+
 	@Get("novo")
-	public void form(){
-		
+	public void form() {
+
 	}
-	
-	
+
 	@Get("list")
-	public void listar(Produto produtoList){
+	public void listar() {
 		ProdutoDAO produtoDAO = new ProdutoDAO();
-		result.include("listarProdutos", produtoDAO.listarProdutos(produtoList));
+		result.include("listarProdutos", produtoDAO.listarProdutos());
 	}
-		
-	
+
 	@Post
-	public void salvar(Produto produto){
+	public void salvar(Produto produto) {
 		ProdutoDAO produtoDao = new ProdutoDAO();
 		produtoDao.salvaProduto(produto);
-		result.include("message", "Produto " + produto.getNome() + " salvo com sucesso!");
+		result.include("message", "Produto " + produto.getNome()
+				+ " salvo com sucesso!");
 		result.redirectTo(this).form();
+	}
+
+	@Get("deletar/{id}")
+	public void deletar(int id) {
+		ProdutoDAO dao = new ProdutoDAO();
+		dao.deletarProduto(id);
+		result.redirectTo(this).listar();
+
 	}
 }

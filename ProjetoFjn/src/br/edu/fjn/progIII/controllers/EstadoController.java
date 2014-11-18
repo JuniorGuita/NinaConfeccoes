@@ -9,7 +9,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.dao.EstadoDAO;
-import br.edu.fjn.progIII.model.Estado;
+import br.edu.fjn.progIII.model.Estado.Estado;
 
 @Controller
 @Path("estado")

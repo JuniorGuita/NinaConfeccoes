@@ -1,19 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta name="author" content="Antonio Siqueira" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Nina Confecções</title>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
-<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/estilo.css" rel="stylesheet">
-
-
-</head>
-<body>
+<jsp:include page="header.jsp">
+  <jsp:param value="${param.title}" name="title"/>
+</jsp:include>
 <div class="container">
 		<div id="topo" class="row">
 			<div id="logo" class="col-md-8"><a href="${linkTo[indexController].index()}">LOGOMARCA</a></div>

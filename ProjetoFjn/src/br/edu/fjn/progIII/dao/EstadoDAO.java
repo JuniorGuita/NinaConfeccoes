@@ -6,7 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 
 import br.edu.fjn.progIII.conexao.FabricaConexao;
-import br.edu.fjn.progIII.model.Estado;
+import br.edu.fjn.progIII.model.Estado.Estado;
 
 public class EstadoDAO {
 	public void getEstados() {

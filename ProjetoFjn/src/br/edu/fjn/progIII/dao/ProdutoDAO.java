@@ -10,8 +10,8 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import br.edu.fjn.progIII.conexao.FabricaConexao;
-import br.edu.fjn.progIII.model.Produto;
-import br.edu.fjn.progIII.model.Usuario;
+import br.edu.fjn.progIII.model.Produto.Produto;
+import br.edu.fjn.progIII.model.Usuario.Usuario;
 
 /*
  * 
@@ -36,7 +36,7 @@ public class ProdutoDAO {
 		}
 	}
 
-	public List<Produto> listarProdutos(Produto produtoList) {
+	public List<Produto> listarProdutos() {
 		EntityManager manager = FabricaConexao.getGerenciador();
 		Session session = (Session) manager.getDelegate();
 
@@ -45,5 +45,21 @@ public class ProdutoDAO {
 		return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
 				.list();
 	}
-
+	
+	public void deletarProduto(int id) {
+		EntityManager manager = FabricaConexao.getGerenciador();
+		manager.getTransaction().begin();
+		
+		try {
+			Produto produto = manager.find(Produto.class, id);
+			manager.remove(produto);
+			manager.getTransaction().commit();	
+		} catch (NullPointerException e) {
+			manager.getTransaction().rollback();
+		} catch (Exception e) {
+			manager.getTransaction().rollback();
+		} finally {
+			manager.close();
+		}
+	}
 }

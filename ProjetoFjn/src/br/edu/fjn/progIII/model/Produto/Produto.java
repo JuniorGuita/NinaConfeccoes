@@ -1,4 +1,4 @@
-package br.edu.fjn.progIII.model;
+package br.edu.fjn.progIII.model.Produto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

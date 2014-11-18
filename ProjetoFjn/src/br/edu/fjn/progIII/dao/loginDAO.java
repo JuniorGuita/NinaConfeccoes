@@ -8,7 +8,7 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import br.edu.fjn.progIII.conexao.FabricaConexao;
-import br.edu.fjn.progIII.model.Usuario;
+import br.edu.fjn.progIII.model.Usuario.Usuario;
 
 /*
  * 

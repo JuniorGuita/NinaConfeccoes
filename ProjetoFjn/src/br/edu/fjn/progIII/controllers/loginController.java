@@ -9,7 +9,7 @@ import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.annotations.Public;
 import br.edu.fjn.progIII.componentes.UserSession;
 import br.edu.fjn.progIII.dao.loginDAO;
-import br.edu.fjn.progIII.model.Usuario;
+import br.edu.fjn.progIII.model.Usuario.Usuario;
 
 /*
  * 

@@ -3,11 +3,7 @@ package br.edu.fjn.progIII.dao;
 import javax.persistence.EntityManager;
 
 import br.edu.fjn.progIII.conexao.FabricaConexao;
-import br.edu.fjn.progIII.model.Cliente;
-/*
- * 
- * @author Antonio Siqueira
- */
+import br.edu.fjn.progIII.model.Cliente.Cliente;
 
 public class ClienteDAO {
 
@@ -28,27 +24,5 @@ public class ClienteDAO {
 		}
 
 	}
-
-	/*public Cliente buscarPorCpf(String cpf) {
-		EntityManager manager = Fabrica.getGerenciador();
-		Session session = (Session) manager.getDelegate();
-
-		Criteria criteria = session.createCriteria(Cliente.class);
-		criteria.add(Restrictions.eq("cpf", cpf));
-		return (Cliente) criteria.uniqueResult();
-	}
-
-	public List<Cliente> buscarPorCidade(String nomeDaCidade) {
-		EntityManager manager = Fabrica.getGerenciador();
-		Session session = (Session) manager.getDelegate();
-
-		Criteria criteria = session.createCriteria(Cliente.class);
-		criteria.createAlias("endereco", "end");
-		criteria.createAlias("end.cidade", "c");
-		criteria.add(Restrictions.eq("c.nome", nomeDaCidade));
-
-		return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
-				.list();
-	}*/
 
 }

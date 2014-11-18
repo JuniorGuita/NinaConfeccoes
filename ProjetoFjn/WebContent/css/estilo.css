@@ -8,6 +8,9 @@
 #logo{
 	font-size: 30px;
 }
+#sairSessao{
+	float: right;
+}
 #logo a:hover, #sairSessao a:hover{
 	text-decoration: none;
 }

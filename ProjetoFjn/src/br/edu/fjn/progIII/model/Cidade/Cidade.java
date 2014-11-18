@@ -1,11 +1,18 @@
-package br.edu.fjn.progIII.model;
+package br.edu.fjn.progIII.model.Cidade;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+
+import br.edu.fjn.progIII.model.Estado.Estado;
 
 /*
  * 
@@ -13,15 +20,19 @@ import javax.persistence.SequenceGenerator;
  */
 
 @Entity
-public class Estado {
+public class Cidade {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estado_seq")
-	@SequenceGenerator(name = "estado_seq", sequenceName = "estado_seq", initialValue = 1, allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cidade_seq")
+	@SequenceGenerator(name = "cidade_seq", sequenceName = "cidade_seq", initialValue = 1, allocationSize = 1)
 	private Integer id;
 	
 	@Column(nullable = false)
-	private String estado;
+	private String cidade;
+	
+	@JoinColumn
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER) //tirar o cascade
+	private Estado estado;
 
 	public Integer getId() {
 		return id;
@@ -31,11 +42,19 @@ public class Estado {
 		this.id = id;
 	}
 
-	public String getEstado() {
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public Estado getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
 
@@ -43,6 +62,7 @@ public class Estado {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((cidade == null) ? 0 : cidade.hashCode());
 		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
@@ -56,7 +76,12 @@ public class Estado {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Estado other = (Estado) obj;
+		Cidade other = (Cidade) obj;
+		if (cidade == null) {
+			if (other.cidade != null)
+				return false;
+		} else if (!cidade.equals(other.cidade))
+			return false;
 		if (estado == null) {
 			if (other.estado != null)
 				return false;
@@ -69,6 +94,7 @@ public class Estado {
 			return false;
 		return true;
 	}
+	
 	
 	
 }

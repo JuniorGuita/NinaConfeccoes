@@ -3,12 +3,13 @@ package br.edu.fjn.progIII.controllers;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.dao.UsuarioDAO;
-import br.edu.fjn.progIII.model.Usuario;
+import br.edu.fjn.progIII.model.Usuario.Usuario;
 
 /*
  * 
@@ -28,9 +29,9 @@ public class usuarioController {
 	}
 	
 	@Get("list")
-	public void listar(Usuario usuarioList){
+	public void listar(){
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
-		result.include("listarUsuarios", usuarioDAO.listarUsuarios(usuarioList));
+		result.include("listarUsuarios", usuarioDAO.listarUsuarios());
 	}
 	
 	
@@ -40,13 +41,22 @@ public class usuarioController {
 			UsuarioDAO salvar = new UsuarioDAO();
 			salvar.salvaUsuario(usuario);
 			result.include("status", true);
-			result.include("message", "Usu√°rio Salvo!");
+			result.include("message", "Usu·rio Salvo!");
 			result.include("classeCss", "alert alert-success");
 		} catch (Exception e) {
 			result.include("status", false);
-			result.include("message", "N√£o foi poss√≠vel salvar o usu√°rio!");
+			result.include("message", "N„o foi possÌvel salvar o usu·rio!");
 			result.include("classeCss", "alert alert-warning");
 		}
 		result.redirectTo(this).form();
 	}
+	
+	
+	@Get("deletar/{id}")
+	public void deletar(int id){
+		UsuarioDAO dao = new UsuarioDAO();
+		dao.deletarUsuario(id);
+		result.redirectTo(this).listar();
+	}
+	
 }

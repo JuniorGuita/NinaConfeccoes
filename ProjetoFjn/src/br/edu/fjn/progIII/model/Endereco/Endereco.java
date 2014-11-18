@@ -1,4 +1,4 @@
-package br.edu.fjn.progIII.model;
+package br.edu.fjn.progIII.model.Endereco;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,6 +14,8 @@ import javax.persistence.SequenceGenerator;
  * 
  * @author Antonio Siqueira
  */
+
+import br.edu.fjn.progIII.model.Cidade.Cidade;
 
 @Entity
 public class Endereco {

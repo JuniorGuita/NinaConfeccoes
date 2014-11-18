@@ -1,20 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta name="author" content="Antonio Siqueira" />
-
-<%@include file="../includes/header.jsp"%>
-<title>Nina Confecções</title>
-</head>
-<body>
-	<%@include file="../includes/includeTopo.jsp"%>	
-	<div class="container">
-		
-
-		
-	</div>
-	<%@include file="../includes/includeFooter.jsp"%>
-</body>
-</html>
+<jsp:include page="menu.jsp">
+   <jsp:param value="Página Inicial" name="title"/>
+</jsp:include>
+<section class="container">
+   <div class="painel painel-default">
+     <div class="panel-body">
+        Página Inicial
+     </div>
+   </div>   
+</section>
+<%@ include file="footer.jsp"%>

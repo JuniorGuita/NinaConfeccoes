@@ -8,7 +8,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.dao.ClienteDAO;
-import br.edu.fjn.progIII.model.Cliente;
+import br.edu.fjn.progIII.model.Cliente.Cliente;
 
 /*
  * 
