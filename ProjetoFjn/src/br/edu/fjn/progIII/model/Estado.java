@@ -1,5 +1,7 @@
 package br.edu.fjn.progIII.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,8 +15,13 @@ import javax.persistence.SequenceGenerator;
  */
 
 @Entity
-public class Estado {
+public class Estado implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7211448444851376790L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estado_seq")
 	@SequenceGenerator(name = "estado_seq", sequenceName = "estado_seq", initialValue = 1, allocationSize = 1)

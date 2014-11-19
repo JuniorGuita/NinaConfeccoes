@@ -19,11 +19,15 @@ public class EstadoController {
 	private Result result;
 
 	@Get("json")
-	public void json() {
-		EstadoDAO estadoDAO = new EstadoDAO();
-		estadoDAO.getEstados();
-		
-		
-		result.include("json", "Estados em JSON ");
+	public List<Estado> json() {
+		List<Estado> estados = null;
+		try {
+			EstadoDAO estadoDAO = new EstadoDAO();
+			estados = estadoDAO.getEstados();
+		} catch (Exception e) {
+			System.out.print("ERROR :::::::::: ");
+			e.printStackTrace();
+		}
+		return estados;
 	}
 }

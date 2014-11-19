@@ -35,7 +35,7 @@ public class UsuarioDAO {
 		Session session = (Session) manager.getDelegate();
 
 		Criteria criteria = session.createCriteria(Usuario.class);
-
+ 
 		return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
 				.list();
 	}
