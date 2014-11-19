@@ -1,5 +1,7 @@
 package br.edu.fjn.progIII.controllers;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -8,7 +10,12 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.dao.ClienteDAO;
+<<<<<<< HEAD
 import br.edu.fjn.progIII.model.Cliente.Cliente;
+=======
+import br.edu.fjn.progIII.model.Cliente;
+import br.edu.fjn.progIII.model.Estado;
+>>>>>>> nome_do_branch
 
 /*
  * 
@@ -24,14 +31,16 @@ public class ClienteController {
 	
 	@Get("novo")
 	public void form(){
-		
+		EstadoController estadoController = new EstadoController();
+		List<Estado> estados = estadoController.json();
+		result.include("estados", estados);
 	}
 	
 	@Post
 	public void salvar(Cliente cliente){
 		ClienteDAO salvar = new ClienteDAO();
 		salvar.salvaCliente(cliente);
-		result.include("message", "Cliente "+cliente.getNome() + " incluído com sucesso!");
+		result.include("message", "Cliente "+cliente.getNome() + " incluï¿½do com sucesso!");
 		result.redirectTo(this).form();
 	}
 }

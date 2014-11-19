@@ -1,6 +1,21 @@
+<<<<<<< HEAD:ProjetoFjn/WebContent/WEB-INF/jsp/index/menu.jsp
 <jsp:include page="header.jsp">
   <jsp:param value="${param.title}" name="title"/>
 </jsp:include>
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE>
+<html>
+<head>
+<title>${param.title}</title>
+<meta name="author" content="Antonio Siqueira" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@include file="../includes/header.jsp"%>
+
+</head>
+<body>
+>>>>>>> nome_do_branch:ProjetoFjn/WebContent/WEB-INF/jsp/includes/includeTopo.jsp
 <div class="container">
 		<div id="topo" class="row">
 			<div id="logo" class="col-md-8"><a href="${linkTo[indexController].index()}">LOGOMARCA</a></div>
