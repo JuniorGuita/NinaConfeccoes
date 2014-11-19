@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <jsp:include page="../index/menu.jsp">
    <jsp:param value="Novo Produto" name="title"/>
 </jsp:include>
@@ -8,17 +8,6 @@
 	<div class="container">
 		<form class="form-horizontal"
 			action="${linkTo[ProdutoController].salvar()}" method="post">
-=======
-<jsp:include page="../includes/includeTopo.jsp">
-	<jsp:param value="Produto - Novo" name="title" />
-</jsp:include>
-<div class="container">
-	<form class="form-horizontal"
-		action="${linkTo[ProdutoController].salvar()}" method="post">
-
-		<!-- Form Name -->
-		<legend>Cadastro de Produtos</legend>
->>>>>>> nome_do_branch
 
 		<!-- Text input-->
 		<div class="form-group">
@@ -74,15 +63,9 @@
 			</div>
 		</div>
 
-<<<<<<< HEAD
 		</form>
 	</div>
 	<%@include file="../index/footer.jsp"%>
-=======
-	</form>
-</div>
-<%@include file="../includes/includeFooter.jsp"%>
->>>>>>> nome_do_branch
 
 </body>
 </html>

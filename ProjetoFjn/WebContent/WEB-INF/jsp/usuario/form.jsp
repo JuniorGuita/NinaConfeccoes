@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 <jsp:include page="../index/menu.jsp">
    <jsp:param value="Novo Usuário" name="title"/>
 </jsp:include>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-=======
-<jsp:include page="../includes/includeTopo.jsp">
-	<jsp:param value="Usuários - Novo" name="title" />
-</jsp:include>
->>>>>>> nome_do_branch
 </head>
 <body>
 	<div class="container">
