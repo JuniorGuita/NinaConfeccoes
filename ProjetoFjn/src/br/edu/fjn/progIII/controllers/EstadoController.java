@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package br.edu.fjn.progIII.controllers;
 
 import java.util.List;
@@ -20,36 +19,6 @@ public class EstadoController {
 	private Result result;
 
 	@Get("json")
-	public void json() {
-		EstadoDAO estadoDAO = new EstadoDAO();
-		estadoDAO.getEstados();
-		
-		
-		result.include("json", "Estados em JSON ");
-	}
-}
-=======
-package br.edu.fjn.progIII.controllers;
-
-import java.util.List;
-
-import javax.inject.Inject;
-
-import br.com.caelum.vraptor.Controller;
-import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Path;
-import br.com.caelum.vraptor.Result;
-import br.edu.fjn.progIII.dao.EstadoDAO;
-import br.edu.fjn.progIII.model.Estado;
-
-@Controller
-@Path("estado")
-public class EstadoController {
-
-	@Inject
-	private Result result;
-
-	@Get("json")
 	public List<Estado> json() {
 		List<Estado> estados = null;
 		try {
@@ -62,4 +31,3 @@ public class EstadoController {
 		return estados;
 	}
 }
->>>>>>> nome_do_branch

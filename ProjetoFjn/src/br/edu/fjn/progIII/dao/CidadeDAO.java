@@ -11,7 +11,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 
 import br.edu.fjn.progIII.conexao.FabricaConexao;
-import br.edu.fjn.progIII.model.Cidade;
+import br.edu.fjn.progIII.model.Cidade.Cidade;
 
 
 public class CidadeDAO {

@@ -1,6 +1,7 @@
 <jsp:include page="../index/menu.jsp">
-	<jsp:param value="Lista de Usuários" name="title" />
+   <jsp:param value="Lista de Usuários" name="title"/>
 </jsp:include>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 </head>
 <body>
 	<div class="container">
@@ -11,13 +12,15 @@
 				<div class="panel-heading">Listagem</div>
 				<!-- Table -->
 				<table class="table">
-					<tr>
-						<td>${incremento}</td>
-						<td>${usuario.nome}</td>
-						<td>${usuario.pass}</td>
-						<td><span class="glyphicon glyphicon-pencil"></span></td>
-						<td><span class="glyphicon glyphicon-trash"></span></td>
-					</tr>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nome:</th>
+							<th>Senha:</th>
+							<th>Editar:</th>
+							<th>Deletar:</th>
+						</tr>
+					</thead>
 					<tbody>
 
 						<c:forEach items="${listarUsuarios}" var="usuario">
@@ -27,17 +30,19 @@
 								<td>${usuario.nome}</td>
 								<td>${usuario.pass}</td>
 								<td><span class="glyphicon glyphicon-pencil"></span></td>
-								<td><a
-									href="${linkTo[usuarioController].deletar(usuario.id)}"><span
-										class="glyphicon glyphicon-trash"></span></a></td>
+								<td><a href="${linkTo[usuarioController].deletar(usuario.id)}"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>
+
 						</c:forEach>
+
+
 					</tbody>
 				</table>
 			</div>
 
 		</div>
 	</div>
+
 	<%@include file="../index/footer.jsp"%>
 </body>
 </html>

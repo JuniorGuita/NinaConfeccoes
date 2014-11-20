@@ -1,7 +1,7 @@
 <jsp:include page="../index/menu.jsp">
-	<jsp:param value="Lista de Produtos" name="title" />
+   <jsp:param value="Lista de Produtos" name="title"/>
 </jsp:include>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 </head>
 <body>
 	<div class="container">
@@ -11,7 +11,6 @@
 				<!-- Default panel contents -->
 				<div class="panel-heading">Listagem</div>
 
-				<<<<<<< HEAD =======
 				<!-- Table -->
 				<table class="table">
 					<thead>
@@ -26,6 +25,7 @@
 						</tr>
 					</thead>
 					<tbody>
+
 						<c:forEach items="${listarProdutos}" var="produto">
 							<c:set var="incremento" value="${incremento + 1}"></c:set>
 							<tr>
@@ -35,8 +35,9 @@
 								<td>${produto.nome}</td>
 								<td>R$${produto.valor}</td>
 								<td><span class="glyphicon glyphicon-pencil"></span></td>
-								<td><a href="#"><span class="glyphicon glyphicon-trash"></span></a></td>
+								<td><a href="${linkTo[ProdutoController].deletar(produto.id)}"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>
+
 						</c:forEach>
 					</tbody>
 				</table>
@@ -44,7 +45,7 @@
 
 		</div>
 	</div>
-	<%@include file="../index/footer.jsp"%>
 
+	<%@include file="../index/footer.jsp"%>
 </body>
 </html>

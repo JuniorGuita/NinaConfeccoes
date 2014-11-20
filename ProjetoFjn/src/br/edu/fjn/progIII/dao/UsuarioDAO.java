@@ -43,13 +43,10 @@ public class UsuarioDAO {
 		Session session = (Session) manager.getDelegate();
 
 		Criteria criteria = session.createCriteria(Usuario.class);
-<<<<<<< HEAD
 		
 		criteria.addOrder(Property.forName("nome").asc());
 
-=======
  
->>>>>>> 049ed01b25df1a08949a719cba599bb3bf02cfc9
 		return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
 				.list();
 	}

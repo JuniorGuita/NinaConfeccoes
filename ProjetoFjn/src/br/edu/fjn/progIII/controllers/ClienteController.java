@@ -10,12 +10,9 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.dao.ClienteDAO;
-<<<<<<< HEAD
 import br.edu.fjn.progIII.model.Cliente.Cliente;
-=======
-import br.edu.fjn.progIII.model.Cliente;
-import br.edu.fjn.progIII.model.Estado;
->>>>>>> nome_do_branch
+import br.edu.fjn.progIII.model.Cliente.Cliente;
+import br.edu.fjn.progIII.model.Estado.Estado;
 
 /*
  * 
