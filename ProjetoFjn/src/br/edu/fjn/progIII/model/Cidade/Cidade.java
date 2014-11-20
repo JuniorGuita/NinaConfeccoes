@@ -1,5 +1,7 @@
 package br.edu.fjn.progIII.model.Cidade;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 import br.edu.fjn.progIII.model.Estado.Estado;
@@ -20,8 +21,13 @@ import br.edu.fjn.progIII.model.Estado.Estado;
  */
 
 @Entity
-public class Cidade {
+public class Cidade implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5249811149382405334L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cidade_seq")
 	@SequenceGenerator(name = "cidade_seq", sequenceName = "cidade_seq", initialValue = 1, allocationSize = 1)

@@ -7,7 +7,6 @@
 	<div class="container">
 		<form class="form-horizontal"
 			action="${linkTo[usuarioController].salvar()}" method="post">
-
 				<!-- Form Name -->
 				<legend>Cadastrar Usuário</legend>
 
@@ -15,7 +14,7 @@
 
 				<c:choose>
 					<c:when test="${status}">
-						<div id="messageUsuario" class="${classeCss}">${message}!!!</div>
+						<div id="messageUsuario" class="${classeCss}">${message}</div>
 					</c:when>
 				</c:choose>
 

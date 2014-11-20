@@ -26,8 +26,13 @@ public class ProdutoController {
 	private Result result;
 
 	@Get("novo")
+<<<<<<< HEAD
 	public void form() {
 
+=======
+	public void form(){
+		// result.include(null, null);
+>>>>>>> nome_do_branch
 	}
 
 	@Get("list")
