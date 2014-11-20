@@ -9,7 +9,7 @@
 	font-size: 30px;
 }
 #sairSessao{
-	float: right;
+	text-align: right;
 }
 #logo a:hover, #sairSessao a:hover{
 	text-decoration: none;

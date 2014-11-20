@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 
 import br.edu.fjn.progIII.conexao.FabricaConexao;
@@ -41,6 +42,8 @@ public class ProdutoDAO {
 		Session session = (Session) manager.getDelegate();
 
 		Criteria criteria = session.createCriteria(Produto.class);
+		
+		criteria.addOrder(Property.forName("codigo").asc());
 
 		return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
 				.list();
