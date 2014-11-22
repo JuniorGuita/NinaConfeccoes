@@ -3,7 +3,6 @@ package br.edu.fjn.progIII.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -22,19 +21,19 @@ public class CidadeController {
 	Result result;
 
 	@Get({ "getjson", "getjson/" })
-	public void getjson() {
-
+	public void getjson(String estadoId) {
+		System.out.println("id da url: " + estadoId);
 		CidadeDAO cidadeDAO = new CidadeDAO();
-		List<Cidade> cidades = cidadeDAO.getList();
+		List<Cidade> cidades = cidadeDAO.getList(estadoId);
 
 		// NÃO FUNCIONA
 
-		// result.use(Results.json()).from(cidades).serialize();
+		result.use(Results.json()).from(cidades, "cidades").recursive().serialize();
 		// result.nothing();
 
 		// FUNCIONA
-		String myJSON = criaJSON(cidades);
-		result.include("cidades", myJSON);
+		// String myJSON = criaJSON(cidades);
+		// result.include("cidades", myJSON);
 	}
 
 	// Cria uma estrutura json

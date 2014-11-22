@@ -1,6 +1,7 @@
 <jsp:include page="../index/menu.jsp">
 	<jsp:param value="Novo Cliente" name="title" />
 </jsp:include>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 </head>
 <body>
 
@@ -110,7 +111,6 @@
 					</select>
 				</div>
 			</div>
-
 			<!-- Select municipios -->
 			<div class="form-group">
 				<label class="control-label col-md-2" for="textinput">Cidade</label>
@@ -143,17 +143,18 @@
 			});
 		});
 
-		function consultar(id) {
-
-			$.getJSON('<c:url value="/cidade/getjson/"' + id + '/>', function(
-					json) {
+		function consultar(idEstado) {
+			$.getJSON('<c:url value="/cidade/getjson/" />', {
+				estadoId : idEstado
+			}, function(json) {
 				popularSelect("municipios", json);
 			});
 		}
 
 		function popularSelect(element, json) {
+			console.log(json.cidades);
 			var options = "";
-			$.each(json, function(chave, valor) {
+			$.each(json.cidades, function(chave, valor) {
 				options += "<option value='" + valor.id + "'>" + valor.cidade
 						+ "</option>";
 			});

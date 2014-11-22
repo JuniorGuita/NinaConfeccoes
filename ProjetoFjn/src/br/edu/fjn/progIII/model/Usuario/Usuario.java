@@ -17,6 +17,11 @@ import javax.persistence.SequenceGenerator;
 @Entity
 public class Usuario implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6090073963088672437L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_seq")
 	@SequenceGenerator(name = "usuario_seq", sequenceName = "usuario_seq", initialValue = 1, allocationSize = 1)
@@ -28,7 +33,7 @@ public class Usuario implements Serializable {
 	@Column(nullable = false)
 	private String pass;
 
-	@Column(nullable = false)
+	//@Column(nullable = false)
 	private String confirmPass;
 
 	public Usuario() {

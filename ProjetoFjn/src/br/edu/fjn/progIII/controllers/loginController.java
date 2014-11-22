@@ -39,6 +39,8 @@ public class loginController {
 			userSession.setUsuario(usuario);
 			result.redirectTo(indexController.class).index();
 		}else{
+			System.out.println(usuario.getNome());
+			System.out.println(usuario.getPass());
 			result.include("message", "Usuário ou senha inválidos");
 			result.redirectTo(this).form();
 		}	
