@@ -26,7 +26,7 @@ public class Endereco {
 	private Integer id;
 	
 	@JoinColumn
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	private Cidade cidade;
 	
 	@Column(nullable = false)
