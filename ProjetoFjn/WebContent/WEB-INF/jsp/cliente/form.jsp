@@ -6,10 +6,13 @@
 <body>
 
 	<div class="container">
+	
+	
 		<form class="form-horizontal"
 			action="${linkTo[ClienteController].salvar()}" method="post">
 			<!-- Form Name -->
 			<legend>Cadastro de Clientes</legend>
+			<p style="color: green;">${message}</p>
 
 			<!-- Text input-->
 			<div class="form-group">
@@ -71,7 +74,6 @@
 					<div class="col-md-6 text-right">
 						<button id="singlebutton" name="singlebutton"
 							class="btn btn-success btn-lg">Cadastrar</button>
-						<p style="color: green;">${message}</p>
 					</div>
 				</div>
 			</div>

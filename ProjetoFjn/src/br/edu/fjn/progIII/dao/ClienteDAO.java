@@ -12,7 +12,6 @@ public class ClienteDAO {
 		manager.getTransaction().begin();
 
 		try {
-					
 			manager.persist(cliente);
 			manager.getTransaction().commit();
 		} catch (NullPointerException e) {

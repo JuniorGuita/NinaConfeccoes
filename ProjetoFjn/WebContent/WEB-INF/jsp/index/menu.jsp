@@ -23,7 +23,7 @@
 				</button>
 				<ul class="dropdown-menu">
 					<li><a href="${linkTo[ClienteController].form()}">Clientes</a></li>
-					<li><a href="#">Fornecedores</a></li>
+					<li><a href="${linkTo[FornecedorController].form}">Fornecedores</a></li>
 					<li><a href="${linkTo[ProdutoController].form()}">Produtos</a></li>
 					<li><a href="${linkTo[usuarioController].form()}">Usuários</a></li>
 				</ul>
