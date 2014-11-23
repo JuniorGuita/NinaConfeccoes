@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- Logradouro-->
 <div class="form-group">
 	<label class="control-label col-md-2" for="textinput">Logradouro</label>
@@ -62,3 +63,28 @@
 		</select>
 	</div>
 </div>
+<script type="text/javascript">
+	$(function() {
+		$("#estado").on("change", function() {
+			consultar($(this).val());
+		});
+	});
+
+	function consultar(idEstado) {
+		$.getJSON('<c:url value="/cidade/getjson/" />', {
+			estadoId : idEstado
+		}, function(json) {
+			popularSelect("municipios", json);
+		});
+	}
+
+	function popularSelect(element, json) {
+		console.log(json.cidades);
+		var options = "";
+		$.each(json.cidades, function(chave, valor) {
+			options += "<option value='" + valor.id + "'>" + valor.cidade
+					+ "</option>";
+		});
+		$("#" + element).html(options);
+	}
+</script>

@@ -79,32 +79,5 @@
 	</div>
 
 	<%@include file="../index/footer.jsp"%>
-
-
-	<script type="text/javascript">
-		$(function() {
-			$("#estado").on("change", function() {
-				consultar($(this).val());
-			});
-		});
-
-		function consultar(idEstado) {
-			$.getJSON('<c:url value="/cidade/getjson/" />', {
-				estadoId : idEstado
-			}, function(json) {
-				popularSelect("municipios", json);
-			});
-		}
-
-		function popularSelect(element, json) {
-			console.log(json.cidades);
-			var options = "";
-			$.each(json.cidades, function(chave, valor) {
-				options += "<option value='" + valor.id + "'>" + valor.cidade
-						+ "</option>";
-			});
-			$("#" + element).html(options);
-		}
-	</script>
 </body>
 </html>

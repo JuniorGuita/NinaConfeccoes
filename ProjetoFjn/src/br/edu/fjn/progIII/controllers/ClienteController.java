@@ -37,7 +37,7 @@ public class ClienteController {
 	public void salvar(Cliente cliente){
 		ClienteDAO salvar = new ClienteDAO();
 		salvar.salvaCliente(cliente);
-		result.include("message", "Cliente "+cliente.getNome() + " inclu�do com sucesso!");
+		result.include("message", "Cliente "+cliente.getNome() + " incluido com sucesso!");
 		result.redirectTo(this).form();
 	}
 }
