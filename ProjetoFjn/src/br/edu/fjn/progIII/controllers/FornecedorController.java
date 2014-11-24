@@ -30,6 +30,7 @@ public class FornecedorController {
 	public void form() {
 		EstadoController estadoController = new EstadoController();
 		List<Estado> estados = estadoController.json();
+		result.include("tituloFormulario", "Cadastrar Fornecedor");
 		result.include("estados", estados);
 	}
 

@@ -30,6 +30,7 @@ public class ClienteController {
 	public void form(){
 		EstadoController estadoController = new EstadoController();
 		List<Estado> estados = estadoController.json();
+		result.include("tituloFormulario", "Cadastrar Cliente");
 		result.include("estados", estados);
 	}
 	

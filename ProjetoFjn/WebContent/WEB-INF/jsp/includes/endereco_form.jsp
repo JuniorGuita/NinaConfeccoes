@@ -52,7 +52,7 @@
 			<option value="0">..selecione..</option>
 
 			<c:forEach var="uf" items="${estados}">
-				<option value="${uf.id}">${uf.estado}</option>
+					<option value="${uf.id}">${uf.estado}</option>
 			</c:forEach>
 		</select>
 	</div>
@@ -66,6 +66,7 @@
 		</select>
 	</div>
 </div>
+
 <script type="text/javascript">
 	$(function() {
 		$("#estado").on("change", function() {
