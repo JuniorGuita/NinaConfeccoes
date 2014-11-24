@@ -5,9 +5,7 @@
 </head>
 <body>
 
-	<div class="container">
-	
-	
+	<div class="container">	
 		<form class="form-horizontal"
 			action="${linkTo[ClienteController].salvar()}" method="post">
 			<!-- Form Name -->
@@ -62,7 +60,7 @@
 
 			<!-- inclusão do formulario  -->
 			<jsp:include page="../includes/endereco_form.jsp">
-				<jsp:param value="cliente" name="objeto" />
+				<jsp:param value="cliente" name="objetoName" />
 			</jsp:include>
 
 

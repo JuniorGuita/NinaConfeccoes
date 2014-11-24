@@ -5,11 +5,17 @@
 </head>
 <body>
 
+<c:if test="${tipoObjeto == 'cliente'}">
+	${cliente.nome}
+</c:if>
+
+${fornecedor.nome}
+
 	<div class="container">
 		<form class="form-horizontal"
 			action="${linkTo[FornecedorController].salvar()}" method="post">
 			<!-- Form Name -->
-			<legend>Cadastro de Fornecedores</legend>
+			<legend>${tituloFormulario}</legend>
 			<p style="color: green;">${message}</p>
 
 			<!-- Text input-->
@@ -17,7 +23,8 @@
 				<label class="control-label col-md-2" for="textinput">Nome:
 				</label>
 				<div class="col-md-4">
-					<input id="textinput" name="fornecedor.nome" placeholder="Nome..."
+					<input id="textinput" name="fornecedor.nome" placeholder="Nome do fornecedor"
+					value="${obj.nome}"
 						class="input-xlarge form-control" type="text">
 				</div>
 			</div>
@@ -27,6 +34,7 @@
 				<label class="control-label col-md-2" for="textinput">CNPJ</label>
 				<div class="col-md-4">
 					<input id="textinput" name="fornecedor.cnpj" placeholder="CNPJ"
+					value="${obj.cnpj}"
 						class="input-xlarge form-control" type="text">
 
 				</div>
@@ -34,7 +42,7 @@
 
 			<!-- inclusão do formulario  -->
 			<jsp:include page="../includes/endereco_form.jsp">
-				<jsp:param value="fornecedor" name="objeto" />
+				<jsp:param value="fornecedor" name="objetoName" />
 			</jsp:include>
 
 			<div class="row">

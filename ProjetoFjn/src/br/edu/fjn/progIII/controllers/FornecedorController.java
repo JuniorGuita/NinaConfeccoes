@@ -37,8 +37,23 @@ public class FornecedorController {
 	public void salvar(Fornecedor fornecedor) {
 		FornecedorDAO fornecedorDAO = new FornecedorDAO();
 		fornecedorDAO.salvarFornecedor(fornecedor);
-		result.include("message", "Fornecedor " + fornecedor.getNome() + " cadastrado com sucesso!");
+		result.include("tituloFormulario", "Cadastrar Fornecedor");
+		result.include("message", "Fornecedor " + fornecedor.getNome()
+				+ " cadastrado com sucesso!");
 		result.redirectTo(this).form();
+	}
+
+	@Get("editar/{id}")
+	public void editar(int id) {
+		FornecedorDAO fornecedorDAO = new FornecedorDAO();
+		Fornecedor fornecedor = fornecedorDAO.buscaPorId(id);
+		EstadoController estadoController = new EstadoController();
+		List<Estado> estados = estadoController.json();
+		result.include("estados", estados);
+
+		result.include("obj", fornecedor);
+		result.include("tituloFormulario", "Editar Fornecedor");
+		result.of(this).form();
 	}
 
 }
