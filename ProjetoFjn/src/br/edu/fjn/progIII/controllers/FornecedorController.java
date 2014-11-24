@@ -60,6 +60,7 @@ public class FornecedorController {
 	public void salvarAlteracoes(Fornecedor fornecedor){
 		FornecedorDAO fornecedorDAO = new FornecedorDAO();
 		fornecedorDAO.editar(fornecedor);
+		result.redirectTo(this).editar(fornecedor.getId());
 	}
 
 	@Get("deletar/{id}")

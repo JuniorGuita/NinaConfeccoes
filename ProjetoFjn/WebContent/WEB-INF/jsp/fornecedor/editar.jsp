@@ -37,7 +37,10 @@
 			<jsp:include page="../includes/endereco_form.jsp">
 				<jsp:param value="fornecedor" name="objetoName" />
 			</jsp:include>
-
+			
+			<input type="hidden" name="fornecedor.id" value="${obj.id}">
+			<input type="hidden" name="fornecedor.endereco.id" value="${obj.endereco.id}">
+			
 			<div class="row">
 				<!-- Button -->
 				<div class="control-group">
