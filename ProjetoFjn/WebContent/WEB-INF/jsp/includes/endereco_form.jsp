@@ -82,7 +82,6 @@
 	}
 
 	function popularSelect(element, json) {
-		console.log(json.cidades);
 		var options = "";
 		$.each(json.cidades, function(chave, valor) {
 			options += "<option value='" + valor.id + "'>" + valor.cidade
