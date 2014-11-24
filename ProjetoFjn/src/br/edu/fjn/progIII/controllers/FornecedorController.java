@@ -50,11 +50,28 @@ public class FornecedorController {
 		Fornecedor fornecedor = fornecedorDAO.buscaPorId(id);
 		EstadoController estadoController = new EstadoController();
 		List<Estado> estados = estadoController.json();
+		
 		result.include("estados", estados);
-
 		result.include("obj", fornecedor);
 		result.include("tituloFormulario", "Editar Fornecedor");
-		result.of(this).form();
+	}
+	
+	@Post("salvar_alteracoes")
+	public void salvarAlteracoes(Fornecedor fornecedor){
+		FornecedorDAO fornecedorDAO = new FornecedorDAO();
+		fornecedorDAO.editar(fornecedor);
+	}
+
+	@Get("deletar/{id}")
+	public void deletar(int id) {
+		// TODO
+	}
+
+	@Get("list")
+	public void listar() {
+		FornecedorDAO fornecedorDAO = new FornecedorDAO();
+		List<Fornecedor> fornecedores = fornecedorDAO.listarFornecedor();
+		result.include("fornecedores", fornecedores);
 	}
 
 }
