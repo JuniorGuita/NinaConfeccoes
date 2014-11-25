@@ -13,6 +13,7 @@ import org.hibernate.criterion.Restrictions;
 import br.edu.fjn.progIII.conexao.FabricaConexao;
 import br.edu.fjn.progIII.model.Produto.Produto;
 import br.edu.fjn.progIII.model.Usuario.Usuario;
+import br.edu.fjn.progIII.model.fornecedor.Fornecedor;
 
 /*
  * 
@@ -65,4 +66,32 @@ public class ProdutoDAO {
 			manager.close();
 		}
 	}
+	
+	public Produto buscaPorId(int id) {
+		EntityManager manager = FabricaConexao.getGerenciador();
+		Session session = (Session) manager.getDelegate();
+
+		Criterion c1 = Restrictions.eq("id", id);
+		Criteria criteria = session.createCriteria(Produto.class);
+		criteria.add(c1);
+
+		return (Produto) criteria.uniqueResult();
+
+	}
+	
+	public void editar(Produto produto) {
+		EntityManager manager = FabricaConexao.getGerenciador();
+		manager.getTransaction().begin();
+		try {
+			manager.merge(produto);
+			manager.getTransaction().commit();
+		} catch (NullPointerException e) {
+			manager.getTransaction().rollback();
+		} catch (Exception e) {
+			manager.getTransaction().rollback();
+		} finally {
+			manager.close();
+		}
+	}
+	
 }

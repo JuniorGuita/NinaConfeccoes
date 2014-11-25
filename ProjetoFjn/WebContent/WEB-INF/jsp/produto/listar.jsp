@@ -34,7 +34,7 @@
 								<td>${produto.marca}</td>
 								<td>${produto.nome}</td>
 								<td>R$${produto.valor}</td>
-								<td><span class="glyphicon glyphicon-pencil"></span></td>
+								<td><a href="${linkTo[ProdutoController].editar(produto.id)}"><span class="glyphicon glyphicon-pencil"></span></a></td>
 								<td><a href="${linkTo[ProdutoController].deletar(produto.id)}"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>
 

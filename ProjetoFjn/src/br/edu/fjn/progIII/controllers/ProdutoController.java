@@ -1,5 +1,7 @@
 package br.edu.fjn.progIII.controllers;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -8,10 +10,13 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.edu.fjn.progIII.dao.FornecedorDAO;
 import br.edu.fjn.progIII.dao.ProdutoDAO;
 import br.edu.fjn.progIII.dao.UsuarioDAO;
+import br.edu.fjn.progIII.model.Estado.Estado;
 import br.edu.fjn.progIII.model.Produto.Produto;
 import br.edu.fjn.progIII.model.Usuario.Usuario;
+import br.edu.fjn.progIII.model.fornecedor.Fornecedor;
 
 /*
  * 
@@ -54,4 +59,20 @@ public class ProdutoController {
 		result.redirectTo(this).listar();
 
 	}
+	
+	@Get("editar/{id}")
+	public void editar(int id) {
+		ProdutoDAO produtoDAO = new ProdutoDAO();
+		Produto produto = produtoDAO.buscaPorId(id);
+		result.include("obj", produto);
+		result.include("tituloFormulario", "Editar Produto");
+	}
+	
+	@Post("salvar_alteracoes")
+	public void salvarAlteracoes(Produto produto){
+		ProdutoDAO produtoDAO = new ProdutoDAO();
+		produtoDAO.editar(produto);
+		result.redirectTo(this).editar(produto.getId());
+	}
+	
 }
