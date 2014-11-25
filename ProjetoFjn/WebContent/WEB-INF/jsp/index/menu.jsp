@@ -35,7 +35,7 @@
 					Gerenciar <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-					<li><a href="#">Lista de Clientes</a></li>
+					<li><a href="${linkTo[ClienteController].listar()}">Lista de Clientes</a></li>
 					<li><a href="${linkTo[FornecedorController].listar()}">Lista de Fornecedores</a></li>
 					<li><a href="${linkTo[ProdutoController].listar()}">Lista
 							de Produtos</a></li>

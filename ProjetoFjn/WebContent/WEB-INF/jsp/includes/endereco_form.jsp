@@ -16,7 +16,7 @@
 	<label class="control-label col-md-2" for="textinput">Numero</label>
 	<div class="col-md-4">
 		<input id="textinput" name="${param.objetoName}.endereco.numero"
-			value="${obj.endereco.logradouro}" placeholder="numero..."
+			value="${obj.endereco.numero}" placeholder="numero..."
 			class="input-xlarge form-control" type="text">
 
 	</div>
@@ -27,7 +27,7 @@
 	<label class="control-label col-md-2" for="textinput">Bairro</label>
 	<div class="col-md-4">
 		<input id="textinput" name="${param.objetoName}.endereco.bairro"
-			value="${obj.endereco.logradouro}" placeholder="bairro..."
+			value="${obj.endereco.bairro}" placeholder="bairro..."
 			class="input-xlarge form-control" type="text">
 
 	</div>
@@ -38,7 +38,7 @@
 	<label class="control-label col-md-2" for="textinput">Complemento</label>
 	<div class="col-md-4">
 		<input id="textinput" name="${param.objetoName}.endereco.complemento"
-			value="${obj.endereco.logradouro}" placeholder="complemento..."
+			value="${obj.endereco.complemento}" placeholder="complemento..."
 			class="input-xlarge form-control" type="text">
 
 	</div>
