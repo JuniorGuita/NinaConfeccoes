@@ -34,6 +34,23 @@ public class FornecedorDAO {
 		}
 	}
 
+	public void deletarFornecedor(int id) {
+		EntityManager manager = FabricaConexao.getGerenciador();
+		manager.getTransaction().begin();
+		
+		try {
+			Fornecedor fornecedor = manager.find(Fornecedor.class, id);
+			manager.remove(fornecedor);
+			manager.getTransaction().commit();	
+		} catch (NullPointerException e) {
+			manager.getTransaction().rollback();
+		} catch (Exception e) {
+			manager.getTransaction().rollback();
+		} finally {
+			manager.close();
+		}
+	}
+	
 	public void editar(Fornecedor fornecedor) {
 		EntityManager manager = FabricaConexao.getGerenciador();
 		manager.getTransaction().begin();

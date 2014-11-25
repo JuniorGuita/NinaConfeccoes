@@ -65,7 +65,9 @@ public class FornecedorController {
 
 	@Get("deletar/{id}")
 	public void deletar(int id) {
-		// TODO
+		FornecedorDAO fornecedorDAO = new FornecedorDAO();
+		fornecedorDAO.deletarFornecedor(id);
+		result.redirectTo(this).listar();
 	}
 
 	@Get("list")
