@@ -8,7 +8,9 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.edu.fjn.progIII.dao.ProdutoDAO;
 import br.edu.fjn.progIII.dao.UsuarioDAO;
+import br.edu.fjn.progIII.model.Produto.Produto;
 import br.edu.fjn.progIII.model.Usuario.Usuario;
 
 /*
@@ -40,6 +42,10 @@ public class usuarioController {
 		try {
 			UsuarioDAO salvar = new UsuarioDAO();
 			salvar.salvaUsuario(usuario);
+			
+			
+			
+			
 			result.include("status", true);
 			result.include("message", "Usuário Salvo!");
 			result.include("classeCss", "alert alert-success");
@@ -51,12 +57,28 @@ public class usuarioController {
 		result.redirectTo(this).form();
 	}
 	
-	
 	@Get("deletar/{id}")
-	public void deletar(int id){
-		UsuarioDAO dao = new UsuarioDAO();
-		dao.deletarUsuario(id);
+	public void deletar(int id) {
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		usuarioDAO.deletarUsuario(id);
 		result.redirectTo(this).listar();
+
+	}
+	
+	
+	@Get("editar/{id}")
+	public void editar(int id) {
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		Usuario usuario = usuarioDAO.buscaPorId(id);
+		result.include("obj", usuario);
+		result.include("tituloFormulario", "Editar Usuário");
+	}
+	
+	@Post("salvar_alteracoes")
+	public void salvarAlteracoes(Usuario usuario){
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		usuarioDAO.editar(usuario);
+		result.redirectTo(this).editar(usuario.getId());
 	}
 	
 }

@@ -28,6 +28,9 @@ public class UsuarioDAO {
 
 		try {
 			manager.persist(usuario);
+			
+			
+			
 			manager.getTransaction().commit();
 		} catch (NullPointerException e) {
 			manager.getTransaction().rollback();
@@ -68,6 +71,33 @@ public class UsuarioDAO {
 		}
 	}
 	
+	public Usuario buscaPorId(int id) {
+		EntityManager manager = FabricaConexao.getGerenciador();
+		Session session = (Session) manager.getDelegate();
+
+		Criterion c1 = Restrictions.eq("id", id);
+		Criteria criteria = session.createCriteria(Usuario.class);
+		criteria.add(c1);
+
+		return (Usuario) criteria.uniqueResult();
+
+	}
+	
+	public void editar(Usuario usuario) {
+		EntityManager manager = FabricaConexao.getGerenciador();
+		manager.getTransaction().begin();
+		try {
+			manager.merge(usuario);
+			manager.getTransaction().commit();
+		} catch (NullPointerException e) {
+			manager.getTransaction().rollback();
+		} catch (Exception e) {
+			manager.getTransaction().rollback();
+		} finally {
+			manager.close();
+		}
+	}
+	
 	
 	/*public Usuario buscarProId(int id){
 		EntityManager manager = FabricaConexao.getGerenciador();
@@ -93,4 +123,6 @@ public class UsuarioDAO {
 		}
 		
 	}*/
+	
+	
 }

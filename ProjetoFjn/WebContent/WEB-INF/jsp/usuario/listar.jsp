@@ -29,7 +29,7 @@
 								<td>${incremento}</td>
 								<td>${usuario.nome}</td>
 								<td>${usuario.pass}</td>
-								<td><span class="glyphicon glyphicon-pencil"></span></td>
+								<td><a href="${linkTo[usuarioController].editar(usuario.id)}"><span class="glyphicon glyphicon-pencil"></span></a></td>
 								<td><a href="${linkTo[usuarioController].deletar(usuario.id)}"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>
 
