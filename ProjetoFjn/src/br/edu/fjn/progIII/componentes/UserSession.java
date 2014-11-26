@@ -16,6 +16,10 @@ import br.edu.fjn.progIII.model.Usuario.Usuario;
 @Named("sessionUser")
 public class UserSession implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3768559804565779075L;
 	private Usuario usuario;
 
 	public Usuario getUsuario() {
