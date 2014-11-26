@@ -26,7 +26,7 @@ public class AuthenticationIntercept implements Interceptor {
 		this.result = result;
 	}
 
-	// Necessário para o CDI	
+	// Necessario para o CDI	
 	AuthenticationIntercept(){
 		
 	}
