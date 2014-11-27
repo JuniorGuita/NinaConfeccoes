@@ -14,9 +14,9 @@ import br.edu.fjn.progIII.dao.FornecedorDAO;
 import br.edu.fjn.progIII.dao.ProdutoDAO;
 import br.edu.fjn.progIII.dao.UsuarioDAO;
 import br.edu.fjn.progIII.model.Estado.Estado;
+import br.edu.fjn.progIII.model.Fornecedor.Fornecedor;
 import br.edu.fjn.progIII.model.Produto.Produto;
 import br.edu.fjn.progIII.model.Usuario.Usuario;
-import br.edu.fjn.progIII.model.fornecedor.Fornecedor;
 
 /*
  * 

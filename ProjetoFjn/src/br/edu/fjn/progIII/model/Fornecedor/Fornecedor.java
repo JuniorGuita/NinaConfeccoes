@@ -1,4 +1,4 @@
-package br.edu.fjn.progIII.model.fornecedor;
+package br.edu.fjn.progIII.model.Fornecedor;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

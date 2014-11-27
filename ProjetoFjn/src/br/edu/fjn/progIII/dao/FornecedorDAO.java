@@ -12,8 +12,8 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.service.spi.Manageable;
 
 import br.edu.fjn.progIII.conexao.FabricaConexao;
+import br.edu.fjn.progIII.model.Fornecedor.Fornecedor;
 import br.edu.fjn.progIII.model.Produto.Produto;
-import br.edu.fjn.progIII.model.fornecedor.Fornecedor;
 
 public class FornecedorDAO {
 

@@ -5,8 +5,33 @@
 	
 	<persistence-unit name="projeto">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.edu.fjn.progIII.model.Carrinho.Carrinho</class>
+		<class>br.edu.fjn.progIII.model.Cidade.Cidade</class>
+		<class>br.edu.fjn.progIII.model.Cliente.Cliente</class>
+		<class>br.edu.fjn.progIII.model.Endereco.Endereco</class>
+		<class>br.edu.fjn.progIII.model.Estado.Estado</class>
+		<class>br.edu.fjn.progIII.model.Fornecedor.Fornecedor</class>
+		<class>br.edu.fjn.progIII.model.Item.Item</class>
+		<class>br.edu.fjn.progIII.model.Produto.Produto</class>
+		<class>br.edu.fjn.progIII.model.Usuario.Usuario</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/projetoFjn" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.password" value="admin" />
+		</properties>
+	</persistence-unit>	
+	
+	<persistence-unit name="log">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.edu.fjn.progIII.model.Log.Log</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/projetoFjnLogs" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />

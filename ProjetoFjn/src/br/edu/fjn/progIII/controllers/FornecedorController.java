@@ -17,7 +17,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.dao.FornecedorDAO;
 import br.edu.fjn.progIII.model.Estado.Estado;
-import br.edu.fjn.progIII.model.fornecedor.Fornecedor;
+import br.edu.fjn.progIII.model.Fornecedor.Fornecedor;
 
 @Controller
 @Path("fornecedor")

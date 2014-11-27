@@ -8,8 +8,10 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.edu.fjn.progIII.dao.LogDAO;
 import br.edu.fjn.progIII.dao.ProdutoDAO;
 import br.edu.fjn.progIII.dao.UsuarioDAO;
+import br.edu.fjn.progIII.model.Log.Log;
 import br.edu.fjn.progIII.model.Produto.Produto;
 import br.edu.fjn.progIII.model.Usuario.Usuario;
 
@@ -43,7 +45,15 @@ public class usuarioController {
 			UsuarioDAO salvar = new UsuarioDAO();
 			salvar.salvaUsuario(usuario);
 			
+			LogDAO logDAO = new LogDAO();
+			Log log = new Log();
 			
+			log.setId(1);
+			log.setNome("teste");
+			log.setOperacao("salvou usuario");
+			log.setData("teste");
+			
+			logDAO.salvarLog(log);
 			
 			
 			result.include("status", true);
