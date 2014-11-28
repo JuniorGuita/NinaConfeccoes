@@ -32,6 +32,10 @@ public class Carrinho {
 	public void addItem(Item item){
 		this.itens.add(item);
 	}
+	
+	public void remove(int chave) {
+		this.itens.remove(chave);
+	}
 
 	@Override
 	public int hashCode() {

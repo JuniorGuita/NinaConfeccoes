@@ -1,4 +1,3 @@
-
 <jsp:include page="../index/menu.jsp">
    <jsp:param value="Novo Produto" name="title"/>
 </jsp:include>

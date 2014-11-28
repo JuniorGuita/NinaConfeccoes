@@ -42,4 +42,10 @@ public class CarrinhoController {
 	public void form() {
 
 	}
+
+	@Get("remover")
+	public void remover(Item item) {
+
+	}
+
 }

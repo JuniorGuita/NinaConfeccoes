@@ -9,11 +9,23 @@
 </head>
 <body>
 
-<ul>
-<c:forEach items="${sessionCart.carrinho.itens}" var="elemento">
-	<li>[${elemento.quantidade}] - ${elemento.produto.nome} (${elemento.produto.valor})</li>
-</c:forEach>
-</ul>
+	<table>
+		<tr>
+			<th>Item</th>
+			<th>Quantidade</th>
+			<th>Subtotal</th>
+		</tr>
+		
+		<c:forEach items="${sessionCart.carrinho.itens}" var="elemento">
+			<tr>
+				<td>${elemento.produto.nome}</td>
+				<td>${elemento.quantidade}</td>
+				<td><a href="${linkTo[CarrinhoController].remover()}2">excluir</a></td>
+				<td>${elemento.produto.valor}</td>
+			</tr>
+		</c:forEach>
+	</table>
+	</ul>
 	<a href="${linkTo[CarrinhoController].adicionar()}2">Adicionar
 		produto 2</a>
 	<a href="${linkTo[CarrinhoController].adicionar()}3"> Adicionar

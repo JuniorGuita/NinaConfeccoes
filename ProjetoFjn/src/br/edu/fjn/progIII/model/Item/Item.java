@@ -29,7 +29,7 @@ public class Item {
 	}
 
 	public void setQuantidade(Integer quantidade) {
-		this.quantidade = (quantidade < 1) ? 1 : quantidade;
+		this.quantidade = 1;
 	}
 
 	@Override

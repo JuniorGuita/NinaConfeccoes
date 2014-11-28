@@ -43,6 +43,10 @@ public class CartSession implements Serializable {
 		this.carrinho.addItem(item);
 	}
 	
+	public void removeItem(int chave){
+		this.carrinho.remove(chave);
+	}
+	
 	
 
 }
