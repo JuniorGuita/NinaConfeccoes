@@ -1,5 +1,7 @@
 package br.edu.fjn.progIII.model.Log;
 
+import java.util.Calendar;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +24,7 @@ public class Log {
 	private String operacao;
 	
 	@Column(nullable = false)
-	private String data;
+	private Calendar data;
 
 	public Integer getId() {
 		return id;
@@ -48,11 +50,11 @@ public class Log {
 		this.operacao = operacao;
 	}
 
-	public String getData() {
+	public Calendar getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(Calendar data) {
 		this.data = data;
 	}
 
@@ -99,6 +101,7 @@ public class Log {
 			return false;
 		return true;
 	}
+
 	
 	
 	

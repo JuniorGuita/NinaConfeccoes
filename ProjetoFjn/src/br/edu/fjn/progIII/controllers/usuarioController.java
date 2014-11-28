@@ -1,5 +1,7 @@
 package br.edu.fjn.progIII.controllers;
 
+import java.util.Calendar;
+
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -8,6 +10,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.edu.fjn.progIII.componentes.UserSession;
 import br.edu.fjn.progIII.dao.LogDAO;
 import br.edu.fjn.progIII.dao.ProdutoDAO;
 import br.edu.fjn.progIII.dao.UsuarioDAO;
@@ -27,6 +30,11 @@ public class usuarioController {
 	@Inject
 	private Result result;
 	
+	@Inject
+	private UserSession user;
+	
+	private Calendar calendar;
+	
 	@Get("novo")
 	public void form(){
 		
@@ -42,20 +50,17 @@ public class usuarioController {
 	@Post
 	public void salvar(Usuario usuario){
 		try {
-			UsuarioDAO salvar = new UsuarioDAO();
-			salvar.salvaUsuario(usuario);
 			
+			UsuarioDAO salvar = new UsuarioDAO();
 			LogDAO logDAO = new LogDAO();
 			Log log = new Log();
 			
-			log.setId(1);
-			log.setNome("teste");
-			log.setOperacao("salvou usuario");
-			log.setData("teste");
-			
+			log.setNome(user.getUsuario().getNome());
+			log.setOperacao("Salvou Usuário");
+			log.setData(calendar.getInstance());
 			logDAO.salvarLog(log);
-			
-			
+			salvar.salvaUsuario(usuario);		
+					
 			result.include("status", true);
 			result.include("message", "Usuário Salvo!");
 			result.include("classeCss", "alert alert-success");
@@ -71,8 +76,15 @@ public class usuarioController {
 	public void deletar(int id) {
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		usuarioDAO.deletarUsuario(id);
+		
+		LogDAO logDAO = new LogDAO();
+		Log log = new Log();
+		log.setNome(user.getUsuario().getNome());
+		log.setOperacao("Deletou Usuário");
+		log.setData(calendar.getInstance());
+		logDAO.salvarLog(log);
+		
 		result.redirectTo(this).listar();
-
 	}
 	
 	
@@ -88,6 +100,14 @@ public class usuarioController {
 	public void salvarAlteracoes(Usuario usuario){
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		usuarioDAO.editar(usuario);
+		
+		LogDAO logDAO = new LogDAO();
+		Log log = new Log();	
+		log.setNome(user.getUsuario().getNome());
+		log.setOperacao("Editou Usuário");
+		log.setData(calendar.getInstance());
+		logDAO.salvarLog(log);
+		
 		result.redirectTo(this).editar(usuario.getId());
 	}
 	

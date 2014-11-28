@@ -23,7 +23,7 @@ public class loginDAO {
 		Criteria criteria = session.createCriteria(Usuario.class);
 		
 		Criterion c1 = Restrictions.ilike("nome", nome);
-		Criterion c2 = Restrictions.ilike("pass", pass);
+		Criterion c2 = Restrictions.eq("pass", pass);
 		
 		criteria.add(Restrictions.and(c1,c2));
 		
