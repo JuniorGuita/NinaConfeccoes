@@ -43,21 +43,21 @@ public class ProdutoDAO {
 		Session session = (Session) manager.getDelegate();
 
 		Criteria criteria = session.createCriteria(Produto.class);
-		
+
 		criteria.addOrder(Property.forName("codigo").asc());
 
 		return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
 				.list();
 	}
-	
+
 	public void deletarProduto(int id) {
 		EntityManager manager = FabricaConexao.getGerenciador();
 		manager.getTransaction().begin();
-		
+
 		try {
 			Produto produto = manager.find(Produto.class, id);
 			manager.remove(produto);
-			manager.getTransaction().commit();	
+			manager.getTransaction().commit();
 		} catch (NullPointerException e) {
 			manager.getTransaction().rollback();
 		} catch (Exception e) {
@@ -66,7 +66,7 @@ public class ProdutoDAO {
 			manager.close();
 		}
 	}
-	
+
 	public Produto buscaPorId(int id) {
 		EntityManager manager = FabricaConexao.getGerenciador();
 		Session session = (Session) manager.getDelegate();
@@ -78,22 +78,25 @@ public class ProdutoDAO {
 		return (Produto) criteria.uniqueResult();
 
 	}
-	
+
 	public List<Produto> pesquisar(String string) {
 		EntityManager manager = FabricaConexao.getGerenciador();
 		Session session = (Session) manager.getDelegate();
 
 		Criterion c1 = Restrictions.ilike("nome", string);
-		//Criterion c2 = Restrictions.eq("codigo", string);
-		//Criterion c3 = Restrictions.or(c1, c2);
-		
+		// Criterion c2 = Restrictions.eq("codigo", string);
+		// Criterion c3 = Restrictions.or(c1, c2);
+
 		Criteria criteria = session.createCriteria(Produto.class);
 		criteria.add(c1);
+		System.out.println();
 
-		return criteria.list();
+		List<Produto> produtos = criteria.list();
+		System.out.println(produtos.size());
+		return produtos;
 
 	}
-	
+
 	public void editar(Produto produto) {
 		EntityManager manager = FabricaConexao.getGerenciador();
 		manager.getTransaction().begin();
@@ -108,5 +111,5 @@ public class ProdutoDAO {
 			manager.close();
 		}
 	}
-	
+
 }
