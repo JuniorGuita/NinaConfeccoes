@@ -1,5 +1,6 @@
 package br.edu.fjn.progIII.controllers;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,13 +10,16 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.edu.fjn.progIII.componentes.UserSession;
 import br.edu.fjn.progIII.dao.ClienteDAO;
 import br.edu.fjn.progIII.dao.FornecedorDAO;
+import br.edu.fjn.progIII.dao.LogDAO;
 import br.edu.fjn.progIII.dao.ProdutoDAO;
 import br.edu.fjn.progIII.model.Cliente.Cliente;
 import br.edu.fjn.progIII.model.Cliente.Cliente;
 import br.edu.fjn.progIII.model.Estado.Estado;
 import br.edu.fjn.progIII.model.Fornecedor.Fornecedor;
+import br.edu.fjn.progIII.model.Log.Log;
 
 /*
  * 
@@ -28,6 +32,11 @@ public class ClienteController {
 
 	@Inject
 	private Result result;
+	
+	@Inject
+	private UserSession user;
+	
+	private Calendar calendar;
 	
 	@Get("novo")
 	public void form(){
@@ -47,6 +56,14 @@ public class ClienteController {
 	public void salvar(Cliente cliente){
 		ClienteDAO salvar = new ClienteDAO();
 		salvar.salvaCliente(cliente);
+		
+		LogDAO logDAO = new LogDAO();
+		Log log = new Log();
+		log.setNome(user.getUsuario().getNome());
+		log.setOperacao("Salvou Cliente");
+		log.setData(calendar.getInstance());
+		logDAO.salvarLog(log);
+		
 		result.include("message", "Cliente "+cliente.getNome() + " incluido com sucesso!");
 		result.redirectTo(this).form();
 	}
@@ -55,6 +72,14 @@ public class ClienteController {
 	public void deletar(int id) {
 		ClienteDAO clienteDAO = new ClienteDAO();
 		clienteDAO.deletarCliente(id);
+		
+		LogDAO logDAO = new LogDAO();
+		Log log = new Log();
+		log.setNome(user.getUsuario().getNome());
+		log.setOperacao("Deletou Cliente");
+		log.setData(calendar.getInstance());
+		logDAO.salvarLog(log);
+		
 		result.redirectTo(this).listar();
 	}
 	
@@ -74,6 +99,14 @@ public class ClienteController {
 	public void salvarAlteracoes(Cliente cliente){
 		ClienteDAO clienteDAO = new ClienteDAO();
 		clienteDAO.editar(cliente);
+		
+		LogDAO logDAO = new LogDAO();
+		Log log = new Log();
+		log.setNome(user.getUsuario().getNome());
+		log.setOperacao("Editou Cliente");
+		log.setData(calendar.getInstance());
+		logDAO.salvarLog(log);
+		
 		result.redirectTo(this).editar(cliente.getId());
 	}
 }
