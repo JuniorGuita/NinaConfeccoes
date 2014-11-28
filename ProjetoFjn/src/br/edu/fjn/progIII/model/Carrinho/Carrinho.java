@@ -1,5 +1,6 @@
 package br.edu.fjn.progIII.model.Carrinho;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.fjn.progIII.model.Item.Item;
@@ -7,6 +8,10 @@ import br.edu.fjn.progIII.model.Item.Item;
 public class Carrinho {
 	private List<Item> itens;
 	private Double total;
+	
+	public Carrinho() {
+		this.itens = new ArrayList<Item>();
+	}
 
 	public List<Item> getItens() {
 		return itens;
@@ -22,6 +27,10 @@ public class Carrinho {
 
 	public void setTotal(Double total) {
 		this.total = total;
+	}
+	
+	public void addItem(Item item){
+		this.itens.add(item);
 	}
 
 	@Override

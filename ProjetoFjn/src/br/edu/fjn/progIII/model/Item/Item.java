@@ -5,6 +5,16 @@ import br.edu.fjn.progIII.model.Produto.Produto;
 public class Item {
 	private Produto produto;
 	private Integer quantidade;
+	
+	public Item() {
+		
+	}
+
+	public Item(Produto produto, Integer quantidade) {
+		super();
+		this.setProduto(produto);
+		this.setQuantidade(quantidade);
+	}
 
 	public Produto getProduto() {
 		return produto;
@@ -19,7 +29,7 @@ public class Item {
 	}
 
 	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
+		this.quantidade = (quantidade < 1) ? 1 : quantidade;
 	}
 
 	@Override
