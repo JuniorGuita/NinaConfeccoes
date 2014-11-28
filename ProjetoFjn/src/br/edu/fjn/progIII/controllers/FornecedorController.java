@@ -6,6 +6,7 @@
 
 package br.edu.fjn.progIII.controllers;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -15,9 +16,12 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.edu.fjn.progIII.componentes.UserSession;
 import br.edu.fjn.progIII.dao.FornecedorDAO;
+import br.edu.fjn.progIII.dao.LogDAO;
 import br.edu.fjn.progIII.model.Estado.Estado;
 import br.edu.fjn.progIII.model.Fornecedor.Fornecedor;
+import br.edu.fjn.progIII.model.Log.Log;
 
 @Controller
 @Path("fornecedor")
@@ -25,6 +29,11 @@ public class FornecedorController {
 
 	@Inject
 	private Result result;
+	
+	@Inject
+	private UserSession user;
+	
+	private Calendar calendar;
 
 	@Get("novo")
 	public void form() {
@@ -38,6 +47,14 @@ public class FornecedorController {
 	public void salvar(Fornecedor fornecedor) {
 		FornecedorDAO fornecedorDAO = new FornecedorDAO();
 		fornecedorDAO.salvarFornecedor(fornecedor);
+		
+		LogDAO logDAO = new LogDAO();
+		Log log = new Log();
+		log.setNome(user.getUsuario().getNome());
+		log.setOperacao("Salvou Fornecedor");
+		log.setData(calendar.getInstance());
+		logDAO.salvarLog(log);
+		
 		result.include("tituloFormulario", "Cadastrar Fornecedor");
 		result.include("message", "Fornecedor " + fornecedor.getNome()
 				+ " cadastrado com sucesso!");
@@ -60,6 +77,14 @@ public class FornecedorController {
 	public void salvarAlteracoes(Fornecedor fornecedor){
 		FornecedorDAO fornecedorDAO = new FornecedorDAO();
 		fornecedorDAO.editar(fornecedor);
+		
+		LogDAO logDAO = new LogDAO();
+		Log log = new Log();
+		log.setNome(user.getUsuario().getNome());
+		log.setOperacao("Editou Fornecedor");
+		log.setData(calendar.getInstance());
+		logDAO.salvarLog(log);
+		
 		result.redirectTo(this).editar(fornecedor.getId());
 	}
 
@@ -67,6 +92,14 @@ public class FornecedorController {
 	public void deletar(int id) {
 		FornecedorDAO fornecedorDAO = new FornecedorDAO();
 		fornecedorDAO.deletarFornecedor(id);
+		
+		LogDAO logDAO = new LogDAO();
+		Log log = new Log();
+		log.setNome(user.getUsuario().getNome());
+		log.setOperacao("Deletou Fornecedor");
+		log.setData(calendar.getInstance());
+		logDAO.salvarLog(log);
+		
 		result.redirectTo(this).listar();
 	}
 
