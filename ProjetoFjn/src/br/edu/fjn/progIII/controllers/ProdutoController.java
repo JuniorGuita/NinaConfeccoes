@@ -11,6 +11,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.view.Results;
 import br.edu.fjn.progIII.componentes.UserSession;
 import br.edu.fjn.progIII.dao.FornecedorDAO;
 import br.edu.fjn.progIII.dao.LogDAO;
@@ -104,6 +105,15 @@ public class ProdutoController {
 		logDAO.salvarLog(log);
 		
 		result.redirectTo(this).editar(produto.getId());
+	}
+	
+	@Get("pesquisar/{string}")
+	public void pesquisar(String string){
+		System.out.println(string);
+		ProdutoDAO produtoDAO = new ProdutoDAO();
+		List<Produto> produtos = produtoDAO.pesquisar(string);
+		System.out.println(produtos.size());
+		result.use(Results.json()).from(produtos, "produtos").recursive().serialize();
 	}
 	
 }

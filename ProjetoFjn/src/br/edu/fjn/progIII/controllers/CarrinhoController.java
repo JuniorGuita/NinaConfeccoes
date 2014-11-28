@@ -43,9 +43,10 @@ public class CarrinhoController {
 
 	}
 
-	@Get("remover")
-	public void remover(Item item) {
-
+	@Get("remover/{id}")
+	public void remover(int id) {
+		cartSession.removeItem(id);
+		result.redirectTo(this).form();
 	}
 
 }
