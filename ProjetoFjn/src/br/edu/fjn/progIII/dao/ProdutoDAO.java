@@ -83,7 +83,7 @@ public class ProdutoDAO {
 		EntityManager manager = FabricaConexao.getGerenciador();
 		Session session = (Session) manager.getDelegate();
 
-		Criterion c1 = Restrictions.ilike("nome", "Perfume");
+		Criterion c1 = Restrictions.ilike("nome", string);
 		//Criterion c2 = Restrictions.eq("codigo", string);
 		//Criterion c3 = Restrictions.or(c1, c2);
 		
