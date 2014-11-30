@@ -10,7 +10,7 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
 				<form class="form-horizontal" role="form" method="get"
-					action="${pageContext.request.contextPath}/fornecedor/busca/">
+					action="${linkTo[FornecedorController].busca}">
 
 					<div class="form-group">
 						Fornecedor (nome): <input type="text" name="string">

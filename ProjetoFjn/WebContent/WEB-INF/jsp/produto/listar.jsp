@@ -11,7 +11,7 @@
 			<div class="col-lg-12 col-md-12">
 			
 				<form class="form-horizontal" role="form" method="get"
-					action="${pageContext.request.contextPath}/produto/busca/">
+					action="${linkTo[ProdutoController].busca}">
 
 					<div class="form-group">
 						Produto (nome): <input type="text" name="string">
