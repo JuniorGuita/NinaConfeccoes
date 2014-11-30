@@ -77,6 +77,19 @@ public class ClienteDAO {
 			manager.close();
 		}
 	}
+	
+	
+	public List<Cliente> busca(String string) {
+		EntityManager manager = FabricaConexao.getGerenciador();
+		Session session = (Session) manager.getDelegate();
+		Criteria criteria = session.createCriteria(Cliente.class);
+		Criterion c1 = Restrictions.ilike("nome", "%" + string + "%");
+		
+		criteria.add(c1);
+
+		List<Cliente> clientes = criteria.list();
+		return clientes;
+	}
 
 	public Cliente buscaPorId(int id) {
 		EntityManager manager = FabricaConexao.getGerenciador();

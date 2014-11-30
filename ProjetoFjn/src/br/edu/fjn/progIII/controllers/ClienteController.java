@@ -20,6 +20,7 @@ import br.edu.fjn.progIII.model.Cliente.Cliente;
 import br.edu.fjn.progIII.model.Estado.Estado;
 import br.edu.fjn.progIII.model.Fornecedor.Fornecedor;
 import br.edu.fjn.progIII.model.Log.Log;
+import br.edu.fjn.progIII.model.Produto.Produto;
 
 /*
  * 
@@ -109,4 +110,12 @@ public class ClienteController {
 		
 		result.redirectTo(this).editar(cliente.getId());
 	}
+	
+	@Get("busca/")
+	public void busca(String string){
+		ClienteDAO clienteDAO = new ClienteDAO();
+		List<Cliente> clientes = clienteDAO.busca(string);
+		result.include("clientes", clientes);
+	}
+	
 }
