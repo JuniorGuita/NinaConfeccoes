@@ -86,4 +86,17 @@ public class FornecedorDAO {
 		return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
 				.list();
 	}
+	
+	public List<Fornecedor> busca(String string) {
+		EntityManager manager = FabricaConexao.getGerenciador();
+		Session session = (Session) manager.getDelegate();
+		Criteria criteria = session.createCriteria(Fornecedor.class);
+		Criterion c1 = Restrictions.ilike("nome", "%" + string + "%");
+		
+		criteria.add(c1);
+
+		List<Fornecedor> fornecedores = criteria.list();
+		return fornecedores;
+	}
+	
 }

@@ -6,6 +6,21 @@
 <body>
 	<div class="container">
 		<legend>Lista de Fornecedores Cadastrados</legend>
+		
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<form class="form-horizontal" role="form" method="get"
+					action="${pageContext.request.contextPath}/fornecedor/busca/">
+
+					<div class="form-group">
+						Fornecedor (nome): <input type="text" name="string">
+
+						<button class="btn btn-success btn-sm">Buscar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		
 		<div class="row">
 			<div class="panel panel-default">
 				<!-- Default panel contents -->

@@ -19,9 +19,11 @@ import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.componentes.UserSession;
 import br.edu.fjn.progIII.dao.FornecedorDAO;
 import br.edu.fjn.progIII.dao.LogDAO;
+import br.edu.fjn.progIII.dao.ProdutoDAO;
 import br.edu.fjn.progIII.model.Estado.Estado;
 import br.edu.fjn.progIII.model.Fornecedor.Fornecedor;
 import br.edu.fjn.progIII.model.Log.Log;
+import br.edu.fjn.progIII.model.Produto.Produto;
 
 @Controller
 @Path("fornecedor")
@@ -110,4 +112,11 @@ public class FornecedorController {
 		result.include("fornecedores", fornecedores);
 	}
 
+	@Get("busca/")
+	public void busca(String string){
+		FornecedorDAO fornecedorDAO = new FornecedorDAO();
+		List<Fornecedor> fornecedores = fornecedorDAO.busca(string);
+		result.include("fornecedores", fornecedores);
+	}
+	
 }

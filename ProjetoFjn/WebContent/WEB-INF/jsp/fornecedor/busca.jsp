@@ -1,7 +1,7 @@
 <jsp:include page="../index/menu.jsp">
-   <jsp:param value="Resultados da Busca" name="title"/>
+	<jsp:param value="Resultados da Busca" name="title" />
 </jsp:include>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 </head>
 <body>
 	<div class="container">
@@ -10,10 +10,10 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
 				<form class="form-horizontal" role="form" method="get"
-					action="${pageContext.request.contextPath}/cliente/busca/">
+					action="${pageContext.request.contextPath}/fornecedor/busca/">
 
 					<div class="form-group">
-						Cliente (nome): <input type="text" name="string">
+						Fornecedor (nome): <input type="text" name="string">
 
 						<button class="btn btn-success btn-sm">Buscar</button>
 					</div>
@@ -31,35 +31,34 @@
 						<tr>
 							<th>#</th>
 							<th>Nome:</th>
-							<th>CPF:</th>
-							<th>Sexo:</th>
+							<th>CPNJ:</th>
 							<th>Editar:</th>
 							<th>Deletar:</th>
 						</tr>
 					</thead>
 					<tbody>
 
-						<c:forEach items="${clientes}" var="cliente">
+						<c:forEach items="${fornecedores}" var="fornecedor">
 							<c:set var="incremento" value="${incremento + 1}"></c:set>
 							<tr>
 								<td>${incremento}</td>
-								<td>${cliente.nome}</td>
-								<td>${cliente.cpf}</td>
-								<td>${cliente.sexo}</td>
-								<td><a href="${linkTo[ClienteController].editar(cliente.id)}"><span class="glyphicon glyphicon-pencil"></span></a></td>
-								<td><a href="${linkTo[ClienteController].deletar(cliente.id)}"><span class="glyphicon glyphicon-trash"></span></a></td>
+								<td>${fornecedor.nome}</td>
+								<td>${fornecedor.cnpj}</td>
+								<td>
+								<a
+									href="${linkTo[FornecedorController].editar(fornecedor.id)}">
+								<span class="glyphicon glyphicon-pencil"></span></a></td>
+								<td><a
+									href="${linkTo[FornecedorController].deletar(fornecedor.id)}">
+										<span class="glyphicon glyphicon-trash"></span>
+								</a></td>
 							</tr>
-
 						</c:forEach>
-
-
 					</tbody>
 				</table>
 			</div>
-
 		</div>
 	</div>
-
 	<%@include file="../index/footer.jsp"%>
 </body>
 </html>
