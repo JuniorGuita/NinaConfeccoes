@@ -102,7 +102,6 @@ public class ProdutoDAO {
 		EntityManager manager = FabricaConexao.getGerenciador();
 		Session session = (Session) manager.getDelegate();
 		Criteria criteria = session.createCriteria(Produto.class);
-			System.out.println("passou");
 		Criterion c1 = Restrictions.ilike("nome", "%" + string + "%");
 		
 		criteria.add(c1);

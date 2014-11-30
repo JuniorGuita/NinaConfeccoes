@@ -9,12 +9,12 @@
 		
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
+			
 				<form class="form-horizontal" role="form" method="get"
-					action="${linkTo[ProdutoController].busca()}">
+					action="${pageContext.request.contextPath}/produto/busca/">
 
 					<div class="form-group">
-						Produto (nome): <input type="text" name="nome">
-
+						Produto (nome): <input type="text" name="string">
 						<button class="btn btn-success btn-sm">Buscar</button>
 					</div>
 				</form>
