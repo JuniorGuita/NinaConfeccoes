@@ -7,6 +7,7 @@
 	<div class="container">
 		<form class="form-horizontal"
 			action="${linkTo[ProdutoController].salvar()}" method="post">
+			<legend>Cadastro de Produtos</legend>
 
 		<!-- Text input-->
 		<div class="form-group">

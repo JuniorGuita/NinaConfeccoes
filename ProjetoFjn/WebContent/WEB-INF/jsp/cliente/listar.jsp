@@ -13,7 +13,7 @@
 					action="${linkTo[ClienteController].busca()}">
 
 					<div class="form-group">
-						Produto (nome): <input type="text" name="string">
+						Cliente (nome): <input type="text" name="string">
 
 						<button class="btn btn-success btn-sm">Buscar</button>
 					</div>
