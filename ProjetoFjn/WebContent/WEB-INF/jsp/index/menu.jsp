@@ -28,7 +28,7 @@
 					<li><a href="${linkTo[usuarioController].form()}">Usuários</a></li>
 				</ul>
 			</div>
-
+			
 			<div id="menu" class="dropdown btn-group btn-group-lg">
 				<button class="btn dropdown-toggle" type="button"
 					data-toggle="dropdown">
@@ -43,5 +43,15 @@
 							de Usuários</a></li>
 				</ul>
 			</div>
+			
+			<div id="menu" class="dropdown btn-group btn-group-lg">
+				<button class="btn dropdown-toggle" type="button"
+					data-toggle="dropdown">
+					Compras <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="${linkTo[CarrinhoController].form}">Suas Compras</a></li>
+				</ul>
+			</div>		
 		</div>
 	</div>
