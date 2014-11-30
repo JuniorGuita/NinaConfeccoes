@@ -96,6 +96,20 @@ public class ProdutoDAO {
 		return produtos;
 
 	}
+	
+	
+	public List<Produto> busca(String string) {
+		EntityManager manager = FabricaConexao.getGerenciador();
+		Session session = (Session) manager.getDelegate();
+		Criteria criteria = session.createCriteria(Produto.class);
+			System.out.println("passou");
+		Criterion c1 = Restrictions.ilike("nome", "%" + string + "%");
+		
+		criteria.add(c1);
+
+		List<Produto> produtos = criteria.list();
+		return produtos;
+	}
 
 	public void editar(Produto produto) {
 		EntityManager manager = FabricaConexao.getGerenciador();

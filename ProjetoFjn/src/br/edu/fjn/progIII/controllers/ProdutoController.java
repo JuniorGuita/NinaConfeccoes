@@ -116,4 +116,14 @@ public class ProdutoController {
 		result.use(Results.json()).from(produtos, "produtos").recursive().serialize();
 	}
 	
+	@Get("busca/{string}")
+	public void busca(String string){
+		System.out.println(string);
+		ProdutoDAO produtoDAO = new ProdutoDAO();
+		List<Produto> produtos = produtoDAO.busca(string);
+		System.out.println(produtos.size());
+		result.include("produtos", produtos);
+		//result.redirectTo(ProdutoController.class).busca(string);
+	}
+	
 }

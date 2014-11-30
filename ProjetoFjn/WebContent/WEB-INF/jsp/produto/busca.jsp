@@ -1,19 +1,19 @@
 <jsp:include page="../index/menu.jsp">
-   <jsp:param value="Lista de Produtos" name="title"/>
+   <jsp:param value="Resultados da Busca" name="title"/>
 </jsp:include>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 </head>
 <body>
 	<div class="container">
-		<legend>Lista de Produtos Cadastrados</legend>
+		<legend>Lista de Resultados</legend>
 		
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
-				<form class="form-horizontal" role="form" method="get"
+				<form class="form-horizontal" role="form"
 					action="${linkTo[ProdutoController].busca()}">
 
 					<div class="form-group">
-						Produto (nome): <input type="text" name="nome">
+						Produto (nome): <input type="text">
 
 						<button class="btn btn-success btn-sm">Buscar</button>
 					</div>
@@ -41,7 +41,7 @@
 					</thead>
 					<tbody>
 
-						<c:forEach items="${listarProdutos}" var="produto">
+						<c:forEach items="${produtos}" var="produto">
 							<c:set var="incremento" value="${incremento + 1}"></c:set>
 							<tr>
 								<td>${incremento}</td>

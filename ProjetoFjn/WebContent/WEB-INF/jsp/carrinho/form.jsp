@@ -15,8 +15,7 @@
 						Produto: <input type="text" name="nome_produto" id="nome_produto">
 						Qtd: <input type="text" name="qtde_produto" id="qtde_produto">
 
-						<button id="singlebutton" name="singlebutton"
-							class="btn btn-success btn-sm">Adicionar</button>
+						<button	class="btn btn-success btn-sm">Adicionar</button>
 
 						<%-- <a href="${linkTo[CarrinhoController].adicionar()}2">Adicionar
 							produto 2</a> --%>
@@ -31,24 +30,24 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Item</th>
-							<th>Marca</th>
-							<th>Quantidade</th>
-							<th>Excluir</th>
-							<th>Subtotal</th>
+							<th style="text-align: center;">Item</th>
+							<th style="text-align: center;">Marca</th>
+							<th style="text-align: center;">Quantidade</th>
+							<th style="text-align: center;">Excluir</th>
+							<th style="text-align: center;">Subtotal</th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach items="${sessionCart.carrinho.itens}" var="elemento">
 							<c:set var="incremento" value="${incremento + 1}"></c:set>
 							<tr>
-								<td>${elemento.produto.nome}</td>
-								<td>${elemento.produto.marca}</td>
-								<td>${elemento.quantidade}</td>
-								<td><a
+								<td style="text-align: center;">${elemento.produto.nome}</td>
+								<td style="text-align: center;">${elemento.produto.marca}</td>
+								<td style="text-align: center;">${elemento.quantidade}</td>
+								<td style="text-align: center;"><a
 									href="${linkTo[CarrinhoController].remover()}${incremento-1}"><span
 										class="glyphicon glyphicon-trash"></span></a></td>
-								<td>${elemento.produto.valor}</td>
+								<td style="text-align: center;">${elemento.produto.valor}</td>
 							</tr>
 						</c:forEach>
 					</tbody>
