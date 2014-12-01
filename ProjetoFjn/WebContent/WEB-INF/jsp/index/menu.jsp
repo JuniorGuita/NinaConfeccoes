@@ -50,7 +50,7 @@
 					Compras <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-					<li><a href="${linkTo[CarrinhoController].form}">Suas Compras</a></li>
+					<li><a href="${linkTo[VendaController].form}">Suas Compras</a></li>
 				</ul>
 			</div>		
 		</div>

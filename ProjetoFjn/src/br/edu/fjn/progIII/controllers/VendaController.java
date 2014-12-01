@@ -14,7 +14,7 @@ import br.edu.fjn.progIII.model.Produto.Produto;
 
 @Controller
 @Path("carrinho")
-public class CarrinhoController {
+public class VendaController {
 
 	@Inject
 	private Result result;
@@ -33,7 +33,7 @@ public class CarrinhoController {
 			Item i = new Item();
 			i.setProduto(p);
 			i.setQuantidade(item.getQuantidade());
-			cartSession.addCarrinho(i);
+			cartSession.addVenda(i);
 		}
 
 		result.redirectTo(this).form();
