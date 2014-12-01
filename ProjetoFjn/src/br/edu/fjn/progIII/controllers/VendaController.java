@@ -13,7 +13,7 @@ import br.edu.fjn.progIII.model.Item.Item;
 import br.edu.fjn.progIII.model.Produto.Produto;
 
 @Controller
-@Path("carrinho")
+@Path("venda")
 public class VendaController {
 
 	@Inject
