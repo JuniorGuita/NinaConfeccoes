@@ -116,6 +116,7 @@ public class ClienteController {
 		ClienteDAO clienteDAO = new ClienteDAO();
 		List<Cliente> clientes = clienteDAO.busca(string);
 		result.include("clientes", clientes);
+		result.include("registros", clientes.size());
 	}
 	
 }

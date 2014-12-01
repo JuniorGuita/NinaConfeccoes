@@ -121,6 +121,7 @@ public class ProdutoController {
 		ProdutoDAO produtoDAO = new ProdutoDAO();
 		List<Produto> produtos = produtoDAO.busca(string);
 		result.include("produtos", produtos);
+		result.include("registros", produtos.size());
 	}
 	
 }

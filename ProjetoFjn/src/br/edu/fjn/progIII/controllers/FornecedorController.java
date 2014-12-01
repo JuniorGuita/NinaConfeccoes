@@ -117,6 +117,7 @@ public class FornecedorController {
 		FornecedorDAO fornecedorDAO = new FornecedorDAO();
 		List<Fornecedor> fornecedores = fornecedorDAO.busca(string);
 		result.include("fornecedores", fornecedores);
+		result.include("registros", fornecedores.size());
 	}
 	
 }

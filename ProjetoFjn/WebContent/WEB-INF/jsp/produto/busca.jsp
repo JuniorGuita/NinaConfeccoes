@@ -15,7 +15,7 @@
 					<div class="form-group">
 						Produto (nome): <input type="text" name="string">
 
-						<button class="btn btn-success btn-sm">Buscar</button>
+						<button class="btn btn-success btn-sm">Buscar</button>   <span id="buscaRegistros">${registros} registro(s) encontrado(s).</span>
 					</div>
 				</form>
 			</div>
