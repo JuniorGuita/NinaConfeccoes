@@ -3,11 +3,13 @@ package br.edu.fjn.progIII.model.Venda;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.fjn.progIII.model.Cliente.Cliente;
 import br.edu.fjn.progIII.model.Item.Item;
 
 public class Venda {
 	private List<Item> itens;
 	private double total;
+	private Cliente cliente;
 
 	public Venda() {
 		this.itens = new ArrayList<Item>();
@@ -41,10 +43,19 @@ public class Venda {
 		this.itens.remove(chave);
 	}
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((cliente == null) ? 0 : cliente.hashCode());
 		result = prime * result + ((itens == null) ? 0 : itens.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(total);
@@ -61,6 +72,11 @@ public class Venda {
 		if (getClass() != obj.getClass())
 			return false;
 		Venda other = (Venda) obj;
+		if (cliente == null) {
+			if (other.cliente != null)
+				return false;
+		} else if (!cliente.equals(other.cliente))
+			return false;
 		if (itens == null) {
 			if (other.itens != null)
 				return false;
@@ -71,5 +87,9 @@ public class Venda {
 			return false;
 		return true;
 	}
+	
+	
+
+	
 
 }
