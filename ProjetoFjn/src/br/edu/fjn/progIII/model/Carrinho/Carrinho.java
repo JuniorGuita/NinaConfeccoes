@@ -26,7 +26,7 @@ public class Carrinho {
 		return this.total;
 	}
 
-	public void setTotal() {
+	private void setTotal() {
 		this.total = 0;
 		for (Item item : itens) {
 			this.total += item.getProduto().getValor() * item.getQuantidade();
