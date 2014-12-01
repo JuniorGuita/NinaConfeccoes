@@ -13,9 +13,7 @@
 					action="${linkTo[CarrinhoController].adicionar()}2">
 					<legend>Carrinho de Compras</legend>
 					<div class="form-group">
-						Produto: <input type="text" name="nome_produto" id="nome_produto">
-
-						<button class="btn btn-success btn-sm">Adicionar</button>
+						<input type="text" name="nome_produto" id="nome_produto" placeholder="Pesquisar..." class="col-lg-12 col-md-12">
 					</div>
 				</form>
 			</div>
@@ -97,11 +95,12 @@
 							options += "<tr>";
 							options += '<td class="col-lg-1">' + valor.id + '</td>';
 							options += "<td>" + valor.nome + "</td>";
+							options += '<td class="col-lg-2 col-md-2">' + valor.valor.toFixed(2) + '</td>';
 							options += '<td class="col-lg-2 col-md-2">' + valor.marca + '</td>';
 							options += "<input type='hidden' name='produto.id' value='" + valor.id + "'>";
 							
 							options += '<td class="col-lg-1 col-md-1">';
-							options += '<input type="number" name="item.quantidade">';
+							options += '<input type="number" name="item.quantidade" tabindex="' + (chave+1) + '">';
 							options += "</td>";
 							
 							options += '<td class="col-lg-1"><input type="submit" value="adicionar"></td>';
