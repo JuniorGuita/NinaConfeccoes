@@ -2,6 +2,7 @@
 	<jsp:param value="Adicionar produtos no carrinho" name="title" />
 </jsp:include>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 </head>
 <body>
 
@@ -15,7 +16,7 @@
 						Produto: <input type="text" name="nome_produto" id="nome_produto">
 						Qtd: <input type="text" name="qtde_produto" id="qtde_produto">
 
-						<button	class="btn btn-success btn-sm">Adicionar</button>
+						<button class="btn btn-success btn-sm">Adicionar</button>
 
 						<%-- <a href="${linkTo[CarrinhoController].adicionar()}2">Adicionar
 							produto 2</a> --%>
@@ -23,6 +24,12 @@
 				</form>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-lg-12">
+			<div id="panelProdutos"></div>
+			</div>
+		</div>
+
 		<div class="row">
 			<div class="panel panel-default">
 				<!-- Default panel contents -->
@@ -55,7 +62,7 @@
 			</div>
 		</div>
 		<div class="row text-right">
-		<strong>TOTAL: </strong><input type="text">
+			<strong>TOTAL: <fmt:formatNumber type="number" minIntegerDigits="2">${sessionCart.carrinho.total}</fmt:formatNumber> </strong>
 		</div>
 	</div>
 
@@ -75,17 +82,36 @@
 		function pesquisarProduto(string) {
 			$.getJSON('<c:url value="/produto/pesquisar/' + string + '" />',
 					{}, function(json) {
-						console.log(json);
+						popularSelect(json);
 					});
 		}
 
-		function popularSelect(element, json) {
+		function popularSelect(json) {
+
 			var options = "";
-			$.each(json.cidades, function(chave, valor) {
-				options += "<option value='" + valor.id + "'>" + valor.cidade
-						+ "</option>";
-			});
-			$("#" + element).html(options);
+			$("#painel").empty();
+			$.each(
+						json.produtos,
+						function(chave, valor) {
+							options += '<form action="adicionar" method="post">';
+							options += '<table class="table table-condensed table-striped" id="painel">';
+							options += "<tr>";
+							options += "<td>" + valor.id + "</td>";
+							options += "<td>" + valor.nome + "</td>";
+							options += "<td>" + valor.marca + "</td>";
+							options += "<input type='hidden' name='produto.id' value='" + valor.id + "'>";
+							
+							options += "<td>";
+							options += '<input type="number" name="item.quantidade">';
+							options += "</td>";
+							
+							options += '<td><input type="submit" value="adicionar"></td>';
+							
+							options += "</tr>";
+							options += "</table>";
+							options += "</form>";
+						});
+			$("#panelProdutos").html(options);
 		}
 	</script>
 </body>

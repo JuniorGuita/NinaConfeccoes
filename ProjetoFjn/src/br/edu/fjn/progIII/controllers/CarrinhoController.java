@@ -8,9 +8,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.componentes.CartSession;
-import br.edu.fjn.progIII.componentes.UserSession;
 import br.edu.fjn.progIII.dao.ProdutoDAO;
-import br.edu.fjn.progIII.model.Carrinho.Carrinho;
 import br.edu.fjn.progIII.model.Item.Item;
 import br.edu.fjn.progIII.model.Produto.Produto;
 
@@ -24,15 +22,18 @@ public class CarrinhoController {
 	@Inject
 	private CartSession cartSession;
 
-	@Get("adicionar/{id}")
-	public void adicionar(int id) {
-		if (id > 0) {
-			System.out.println("[CarrinhoController] idProduto: " + id);
+	@Post("adicionar")
+	public void adicionar(Produto produto, Item item) {
+		System.out.println(produto.getId());
+		System.out.println("Quantidade do Item: " + item.getQuantidade());
+
+		if (item.getQuantidade() > 0) {
 			ProdutoDAO produtoDAO = new ProdutoDAO();
-			Produto produto = produtoDAO.buscaPorId(id);
-			Item item = new Item();
-			item.setProduto(produto);
-			cartSession.addCarrinho(item);
+			Produto p = produtoDAO.buscaPorId(produto.getId());
+			Item i = new Item();
+			i.setProduto(p);
+			i.setQuantidade(item.getQuantidade());
+			cartSession.addCarrinho(i);
 		}
 
 		result.redirectTo(this).form();
@@ -47,6 +48,7 @@ public class CarrinhoController {
 	public void remover(int id) {
 		cartSession.removeItem(id);
 		result.redirectTo(this).form();
+		cartSession.getCarrinho().setTotal();
 	}
 
 }

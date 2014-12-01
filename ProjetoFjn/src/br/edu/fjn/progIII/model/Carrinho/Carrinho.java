@@ -7,8 +7,8 @@ import br.edu.fjn.progIII.model.Item.Item;
 
 public class Carrinho {
 	private List<Item> itens;
-	private Double total;
-	
+	private double total;
+
 	public Carrinho() {
 		this.itens = new ArrayList<Item>();
 	}
@@ -21,18 +21,22 @@ public class Carrinho {
 		this.itens = itens;
 	}
 
-	public Double getTotal() {
-		return total;
+	public double getTotal() {
+		this.setTotal();
+		return this.total;
 	}
 
-	public void setTotal(Double total) {
-		this.total = total;
+	public void setTotal() {
+		this.total = 0;
+		for (Item item : itens) {
+			this.total += item.getProduto().getValor() * item.getQuantidade();
+		}
 	}
-	
-	public void addItem(Item item){
+
+	public void addItem(Item item) {
 		this.itens.add(item);
 	}
-	
+
 	public void remove(int chave) {
 		this.itens.remove(chave);
 	}
@@ -42,7 +46,9 @@ public class Carrinho {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((itens == null) ? 0 : itens.hashCode());
-		result = prime * result + ((total == null) ? 0 : total.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(total);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
 
@@ -60,10 +66,8 @@ public class Carrinho {
 				return false;
 		} else if (!itens.equals(other.itens))
 			return false;
-		if (total == null) {
-			if (other.total != null)
-				return false;
-		} else if (!total.equals(other.total))
+		if (Double.doubleToLongBits(total) != Double
+				.doubleToLongBits(other.total))
 			return false;
 		return true;
 	}

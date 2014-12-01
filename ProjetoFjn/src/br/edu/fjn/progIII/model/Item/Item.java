@@ -29,7 +29,7 @@ public class Item {
 	}
 
 	public void setQuantidade(Integer quantidade) {
-		this.quantidade = 1;
+		this.quantidade = quantidade;
 	}
 
 	@Override
@@ -63,5 +63,12 @@ public class Item {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Item [produto=" + produto + ", quantidade=" + quantidade + "]";
+	}
+	
+	
 
 }
