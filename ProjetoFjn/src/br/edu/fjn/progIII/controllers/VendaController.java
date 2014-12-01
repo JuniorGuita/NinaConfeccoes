@@ -50,5 +50,10 @@ public class VendaController {
 		result.redirectTo(this).form();
 		// cartSession.getCarrinho().();
 	}
+	
+	@Get("identificacao")
+	public void identificacaoCliente(){
+		
+	}
 
 }
