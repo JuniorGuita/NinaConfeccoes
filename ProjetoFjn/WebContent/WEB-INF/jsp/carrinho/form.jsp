@@ -16,9 +16,6 @@
 						Produto: <input type="text" name="nome_produto" id="nome_produto">
 
 						<button class="btn btn-success btn-sm">Adicionar</button>
-
-						<%-- <a href="${linkTo[CarrinhoController].adicionar()}2">Adicionar
-							produto 2</a> --%>
 					</div>
 				</form>
 			</div>

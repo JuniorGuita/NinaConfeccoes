@@ -5,9 +5,9 @@ import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-import br.edu.fjn.progIII.model.Carrinho.Carrinho;
 import br.edu.fjn.progIII.model.Item.Item;
 import br.edu.fjn.progIII.model.Produto.Produto;
+import br.edu.fjn.progIII.model.Venda.Venda;
 
 /**
  * 
@@ -24,17 +24,17 @@ public class CartSession implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -5326502009673780873L;
-	private Carrinho carrinho = new Carrinho();
+	private Venda carrinho = new Venda();
 
 	
 	public CartSession() {
 	}
 	
-	public Carrinho getCarrinho() {
+	public Venda getCarrinho() {
 		return carrinho;
 	}
 
-	public void setCarrinho(Carrinho carrinho) {
+	public void setCarrinho(Venda carrinho) {
 		this.carrinho = carrinho;
 	}
 	
