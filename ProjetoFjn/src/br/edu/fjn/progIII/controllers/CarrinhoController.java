@@ -48,7 +48,7 @@ public class CarrinhoController {
 	public void remover(int id) {
 		cartSession.removeItem(id);
 		result.redirectTo(this).form();
-		cartSession.getCarrinho().setTotal();
+		// cartSession.getCarrinho().();
 	}
 
 }
