@@ -33,6 +33,7 @@
 							<th>Nome:</th>
 							<th>CPF:</th>
 							<th>Sexo:</th>
+							<th>Telefone:</th>
 							<th>Editar:</th>
 							<th>Deletar:</th>
 						</tr>
@@ -46,6 +47,7 @@
 								<td>${cliente.nome}</td>
 								<td>${cliente.cpf}</td>
 								<td>${cliente.sexo}</td>
+								<td>${cliente.telefone}</td>
 								<td><a href="${linkTo[ClienteController].editar(cliente.id)}"><span class="glyphicon glyphicon-pencil"></span></a></td>
 								<td><a href="${linkTo[ClienteController].deletar(cliente.id)}"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>

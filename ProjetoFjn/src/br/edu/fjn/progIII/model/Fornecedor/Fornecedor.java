@@ -28,6 +28,9 @@ public class Fornecedor {
 
 	@Column(nullable = false)
 	private String nome;
+	
+	@Column(nullable = false)
+	private String telefone;
 
 	@Column(nullable = false)
 	private String cnpj;
@@ -56,6 +59,14 @@ public class Fornecedor {
 		this.nome = nome;
 	}
 
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
 	public String getCnpj() {
 		return cnpj;
 	}
@@ -81,6 +92,8 @@ public class Fornecedor {
 				+ ((endereco == null) ? 0 : endereco.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result
+				+ ((telefone == null) ? 0 : telefone.hashCode());
 		return result;
 	}
 
@@ -113,7 +126,11 @@ public class Fornecedor {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
+		if (telefone == null) {
+			if (other.telefone != null)
+				return false;
+		} else if (!telefone.equals(other.telefone))
+			return false;
 		return true;
 	}
-
 }

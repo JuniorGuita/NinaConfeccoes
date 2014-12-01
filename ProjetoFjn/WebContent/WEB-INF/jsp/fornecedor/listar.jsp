@@ -32,6 +32,7 @@
 							<th>#</th>
 							<th>Nome:</th>
 							<th>CPNJ:</th>
+							<th>Telefone:</th>
 							<th>Editar:</th>
 							<th>Deletar:</th>
 						</tr>
@@ -44,6 +45,7 @@
 								<td>${incremento}</td>
 								<td>${fornecedor.nome}</td>
 								<td>${fornecedor.cnpj}</td>
+								<td>${fornecedor.telefone}</td>
 								<td>
 								<a
 									href="${linkTo[FornecedorController].editar(fornecedor.id)}">

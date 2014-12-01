@@ -28,6 +28,9 @@ public class Cliente {
 
 	@Column(nullable = false)
 	private String nome;
+	
+	@Column(nullable = false)
+	private String telefone;
 
 	@Column(nullable = false)
 	private String sexo;
@@ -60,6 +63,14 @@ public class Cliente {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 	public String getSexo() {
@@ -105,6 +116,8 @@ public class Cliente {
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((rg == null) ? 0 : rg.hashCode());
 		result = prime * result + ((sexo == null) ? 0 : sexo.hashCode());
+		result = prime * result
+				+ ((telefone == null) ? 0 : telefone.hashCode());
 		return result;
 	}
 
@@ -147,7 +160,11 @@ public class Cliente {
 				return false;
 		} else if (!sexo.equals(other.sexo))
 			return false;
+		if (telefone == null) {
+			if (other.telefone != null)
+				return false;
+		} else if (!telefone.equals(other.telefone))
+			return false;
 		return true;
 	}
-
 }

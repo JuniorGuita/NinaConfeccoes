@@ -40,6 +40,16 @@
 
 
 			<div class="form-group">
+				<label class="control-label col-md-2" for="textinput">Telefone: </label>
+				<div class="col-md-4">
+					<input id="textinput" name="cliente.telefone" placeholder="telefone..."
+						class="input-xlarge form-control" type="text">
+
+				</div>
+			</div>
+			
+
+			<div class="form-group">
 				<label class="control-label col-md-2" for="textinput">Cpf: </label>
 				<div class="col-md-4">
 					<input id="textinput" name="cliente.cpf" placeholder="cpf..."

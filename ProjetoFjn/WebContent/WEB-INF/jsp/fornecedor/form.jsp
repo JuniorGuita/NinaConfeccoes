@@ -31,10 +31,21 @@ ${fornecedor.nome}
 
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="control-label col-md-2" for="textinput">CNPJ</label>
+				<label class="control-label col-md-2" for="textinput">CNPJ:</label>
 				<div class="col-md-4">
-					<input id="textinput" name="fornecedor.cnpj" placeholder="CNPJ"
+					<input id="textinput" name="fornecedor.cnpj" placeholder="CNPJ..."
 					value="${obj.cnpj}"
+						class="input-xlarge form-control" type="text">
+
+				</div>
+			</div>
+			
+			
+			<div class="form-group">
+				<label class="control-label col-md-2" for="textinput">Telefone:</label>
+				<div class="col-md-4">
+					<input id="textinput" name="fornecedor.telefone" placeholder="telefone..."
+					value="${obj.telefone}"
 						class="input-xlarge form-control" type="text">
 
 				</div>
