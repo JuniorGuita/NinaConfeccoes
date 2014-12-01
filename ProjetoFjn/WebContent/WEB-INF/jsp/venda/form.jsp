@@ -10,7 +10,7 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
 				<form class="form-horizontal" role="form"
-					action="${linkTo[CarrinhoController].adicionar()}2">
+					action="${linkTo[VendaController].adicionar()}2">
 					<legend>Venda</legend>
 					<div class="form-group">
 						<input type="text" name="nome_produto" id="nome_produto"
@@ -41,7 +41,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${sessionCart.carrinho.itens}" var="elemento">
+						<c:forEach items="${sessionCart.venda.itens}" var="elemento">
 							<c:set var="incremento" value="${incremento + 1}"></c:set>
 							<tr>
 								<td>${elemento.produto.nome}</td>
@@ -51,7 +51,7 @@
 								</fmt:formatNumber></td>
 								<td class="text-center">${elemento.quantidade}</td>
 								<td class="text-center"><a
-									href="${linkTo[CarrinhoController].remover()}${incremento-1}"><span
+									href="${linkTo[VendaController].remover()}${incremento-1}"><span
 										class="glyphicon glyphicon-trash"></span></a></td>
 								<td class="text-right"><fmt:formatNumber type="number"
 										minFractionDigits="2">${elemento.produto.valor * elemento.quantidade}</fmt:formatNumber></td>
@@ -63,7 +63,7 @@
 		</div>
 		<div class="row text-right">
 			<strong>TOTAL: <fmt:formatNumber type="number"
-					minFractionDigits="2">${sessionCart.carrinho.total}</fmt:formatNumber>
+					minFractionDigits="2">${sessionCart.venda.total}</fmt:formatNumber>
 			</strong>
 		</div>
 	</div>

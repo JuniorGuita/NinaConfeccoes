@@ -24,27 +24,27 @@ public class CartSession implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -5326502009673780873L;
-	private Venda carrinho = new Venda();
+	private Venda venda = new Venda();
 
 	
 	public CartSession() {
 	}
 	
-	public Venda getCarrinho() {
-		return carrinho;
+	public Venda getVenda() {
+		return venda;
 	}
 
-	public void setCarrinho(Venda carrinho) {
-		this.carrinho = carrinho;
+	public void setVenda(Venda venda) {
+		this.venda = venda;
 	}
 	
-	public void addCarrinho(Item item){
+	public void addVenda(Item item){
 		System.out.println("[CartSession] adicionar novo item ao carrinho");
-		this.carrinho.addItem(item);
+		this.venda.addItem(item);
 	}
 	
 	public void removeItem(int chave){
-		this.carrinho.remove(chave);
+		this.venda.remove(chave);
 	}
 	
 	
