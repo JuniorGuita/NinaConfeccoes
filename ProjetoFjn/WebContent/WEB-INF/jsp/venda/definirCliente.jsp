@@ -53,7 +53,7 @@
 					</table>
 				</div>
 
-				<a href="" class="btn btn-primary btn-sm">Finalizar venda</a>
+				<a href="${linkTo[VendaController].salvarVenda()}" class="btn btn-primary btn-sm">Finalizar venda</a>
 			</div>
 		</div>
 	</div>
