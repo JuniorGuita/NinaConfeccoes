@@ -8,7 +8,9 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.componentes.CartSession;
+import br.edu.fjn.progIII.dao.ClienteDAO;
 import br.edu.fjn.progIII.dao.ProdutoDAO;
+import br.edu.fjn.progIII.model.Cliente.Cliente;
 import br.edu.fjn.progIII.model.Item.Item;
 import br.edu.fjn.progIII.model.Produto.Produto;
 
@@ -54,6 +56,13 @@ public class VendaController {
 	@Get("identificacao")
 	public void identificacaoCliente(){
 		
+	}
+	
+	@Get("definirCliente/{id}")
+	public void definirCliente(int id){
+		ClienteDAO clienteDAO = new ClienteDAO();
+		Cliente cliente = clienteDAO.buscaPorId(id);
+		cartSession.getVenda().setCliente(cliente);
 	}
 
 }

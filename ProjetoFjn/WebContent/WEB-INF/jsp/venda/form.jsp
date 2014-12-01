@@ -71,7 +71,7 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
 				<div class="text-right">
-					<a href="${linkTo[VendaController].identificacaoCliente()}" class="btn btn-primary">Finalizar Venda</a>
+					<a href="${linkTo[VendaController].identificacaoCliente()}" class="btn btn-primary">Selecionar cliente</a>
 				</div>
 			</div>
 		</div>
