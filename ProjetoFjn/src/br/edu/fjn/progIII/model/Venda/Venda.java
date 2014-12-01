@@ -1,15 +1,15 @@
-package br.edu.fjn.progIII.model.Carrinho;
+package br.edu.fjn.progIII.model.Venda;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.fjn.progIII.model.Item.Item;
 
-public class Carrinho {
+public class Venda {
 	private List<Item> itens;
 	private double total;
 
-	public Carrinho() {
+	public Venda() {
 		this.itens = new ArrayList<Item>();
 	}
 
@@ -60,7 +60,7 @@ public class Carrinho {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Carrinho other = (Carrinho) obj;
+		Venda other = (Venda) obj;
 		if (itens == null) {
 			if (other.itens != null)
 				return false;
