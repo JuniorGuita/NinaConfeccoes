@@ -1,8 +1,15 @@
 package br.edu.fjn.progIII.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Property;
+
 import br.edu.fjn.progIII.conexao.FabricaConexao;
+import br.edu.fjn.progIII.model.Produto.Produto;
 import br.edu.fjn.progIII.model.Venda.Venda;
 
 public class VendaDAO {
@@ -23,4 +30,16 @@ public class VendaDAO {
 			manager.close();
 		}
 	}
+	
+	public List<Venda> listarVendas() {
+		EntityManager manager = FabricaConexao.getGerenciador();
+		Session session = (Session) manager.getDelegate();
+
+		Criteria criteria = session.createCriteria(Venda.class);
+
+
+		return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+				.list();
+	}
+	
 }

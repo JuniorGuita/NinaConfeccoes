@@ -1,5 +1,7 @@
 package br.edu.fjn.progIII.controllers;
 
+import java.util.Calendar;
+
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -8,11 +10,14 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.progIII.componentes.CartSession;
+import br.edu.fjn.progIII.componentes.UserSession;
 import br.edu.fjn.progIII.dao.ClienteDAO;
+import br.edu.fjn.progIII.dao.LogDAO;
 import br.edu.fjn.progIII.dao.ProdutoDAO;
 import br.edu.fjn.progIII.dao.VendaDAO;
 import br.edu.fjn.progIII.model.Cliente.Cliente;
 import br.edu.fjn.progIII.model.Item.Item;
+import br.edu.fjn.progIII.model.Log.Log;
 import br.edu.fjn.progIII.model.Produto.Produto;
 import br.edu.fjn.progIII.model.Venda.Venda;
 
@@ -22,10 +27,23 @@ public class VendaController {
 
 	@Inject
 	private Result result;
-
+	
+	@Inject
+	private UserSession user;
+	
 	@Inject
 	private CartSession cartSession;
+	
+	private Calendar calendar;
 
+	
+	@Get("list")
+	public void listar() {
+		VendaDAO vendaDAO = new VendaDAO();
+		result.include("listarVendas", vendaDAO.listarVendas());
+	}
+	
+	
 	@Post("adicionar")
 	public void adicionar(Produto produto, Item item) {
 		System.out.println(produto.getId());
@@ -71,7 +89,17 @@ public class VendaController {
 	public void salvarVenda(){
 		Venda venda = cartSession.getVenda();
 		VendaDAO vendaDAO = new VendaDAO();
+		
+		LogDAO logDAO = new LogDAO();
+		Log log = new Log();
+		log.setNome(user.getUsuario().getNome());
+		log.setOperacao("Realizou Venda");
+		log.setData(calendar.getInstance());
+		logDAO.salvarLog(log);
+		
 		vendaDAO.salvarVenda(venda);
+		cartSession.setVenda(null);
+		result.redirectTo(this).form();
 	}
 
 }

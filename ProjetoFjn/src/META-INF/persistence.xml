@@ -14,6 +14,7 @@
 		<class>br.edu.fjn.progIII.model.Item.Item</class>
 		<class>br.edu.fjn.progIII.model.Produto.Produto</class>
 		<class>br.edu.fjn.progIII.model.Usuario.Usuario</class>
+		<class>br.edu.fjn.progIII.model.Venda.Venda</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/projetoFjn" />

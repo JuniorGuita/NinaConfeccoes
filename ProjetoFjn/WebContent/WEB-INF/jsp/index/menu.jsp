@@ -47,10 +47,11 @@
 			<div id="menu" class="dropdown btn-group btn-group-lg">
 				<button class="btn dropdown-toggle" type="button"
 					data-toggle="dropdown">
-					Compras <span class="caret"></span>
+					Vendas <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-					<li><a href="${linkTo[VendaController].form}">Suas Compras</a></li>
+					<li><a href="${linkTo[VendaController].form()}">Abrir Venda</a></li>
+					<li><a href="${linkTo[VendaController].listar()}">Listar Vendas</a></li>
 				</ul>
 			</div>		
 		</div>
