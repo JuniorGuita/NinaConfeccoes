@@ -18,8 +18,8 @@ public class indexDAO {
 		Session session = (Session) manager.getDelegate();
 
 		Criteria criteria = session.createCriteria(Produto.class);
+		criteria.addOrder(Property.forName("id").desc());
 		criteria.setMaxResults(3);
-		criteria.addOrder(Property.forName("codigo").asc());
 		
 		
 		return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();

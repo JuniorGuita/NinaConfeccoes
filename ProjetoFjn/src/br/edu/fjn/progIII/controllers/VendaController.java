@@ -1,6 +1,9 @@
 package br.edu.fjn.progIII.controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -90,6 +93,13 @@ public class VendaController {
 		Venda venda = cartSession.getVenda();
 		VendaDAO vendaDAO = new VendaDAO();
 		
+		Date data = new Date();
+		SimpleDateFormat dataFormat = new SimpleDateFormat("dd/MM/yyyy");
+		String dataFinal = dataFormat.format(data.getTime());	
+		venda.setCalendar(dataFinal);
+		
+		
+		
 		LogDAO logDAO = new LogDAO();
 		Log log = new Log();
 		log.setNome(user.getUsuario().getNome());
@@ -101,5 +111,33 @@ public class VendaController {
 		cartSession.setVenda(null);
 		result.redirectTo(this).form();
 	}
+	
+	@Get("deletar/{id}")
+	public void deletar(int id) {
+		VendaDAO vendaDao = new VendaDAO();
+		vendaDao.deletarVenda(id);
+		
+		LogDAO logDAO = new LogDAO();
+		Log log = new Log();
+		log.setNome(user.getUsuario().getNome());
+		log.setOperacao("Deletou Venda");
+		log.setData(calendar.getInstance());
+		logDAO.salvarLog(log);
+		
+		result.redirectTo(this).listar();
 
+	}
+	
+
+	@Get("detalhar/{id}")
+	public void detalhar(int id) {
+		VendaDAO vendaDAO = new VendaDAO();
+		Venda venda = vendaDAO.buscaPorId(id);
+		result.include("obj", venda);
+		result.include("tituloFormulario", "Descriminar Venda");
+		result.include("listarVendas", vendaDAO.listarVendas());
+		
+		List<Item> lista = venda.getItens();
+		result.include("listar", lista);
+	}
 }

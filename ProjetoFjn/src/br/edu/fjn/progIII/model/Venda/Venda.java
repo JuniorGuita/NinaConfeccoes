@@ -1,6 +1,7 @@
 package br.edu.fjn.progIII.model.Venda;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import br.edu.fjn.progIII.model.Cliente.Cliente;
 import br.edu.fjn.progIII.model.Item.Item;
@@ -34,6 +37,8 @@ public class Venda {
 	@JoinColumn
 	@OneToOne(fetch = FetchType.EAGER)
 	private Cliente cliente;
+	
+	private String calendar;
 
 	public Venda() {
 		this.itens = new ArrayList<Item>();
@@ -89,10 +94,22 @@ public class Venda {
 		this.total = total;
 	}
 
+	
+
+	public String getCalendar() {
+		return calendar;
+	}
+
+	public void setCalendar(String calendar) {
+		this.calendar = calendar;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result
+				+ ((calendar == null) ? 0 : calendar.hashCode());
 		result = prime * result + ((cliente == null) ? 0 : cliente.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((itens == null) ? 0 : itens.hashCode());
@@ -111,6 +128,11 @@ public class Venda {
 		if (getClass() != obj.getClass())
 			return false;
 		Venda other = (Venda) obj;
+		if (calendar == null) {
+			if (other.calendar != null)
+				return false;
+		} else if (!calendar.equals(other.calendar))
+			return false;
 		if (cliente == null) {
 			if (other.cliente != null)
 				return false;

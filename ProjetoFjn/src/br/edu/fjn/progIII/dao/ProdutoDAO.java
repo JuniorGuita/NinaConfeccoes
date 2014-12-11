@@ -44,7 +44,7 @@ public class ProdutoDAO {
 
 		Criteria criteria = session.createCriteria(Produto.class);
 
-		criteria.addOrder(Property.forName("codigo").asc());
+		criteria.addOrder(Property.forName("nome").asc());
 
 		return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
 				.list();

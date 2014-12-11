@@ -2,12 +2,25 @@
    <jsp:param value="Lista Vendas" name="title"/>
 </jsp:include>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 </head>
 <body>
 	<div class="container">
 		<legend>Lista de Vendas Cadastrados</legend>
 		
-		
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+			
+				<form class="form-horizontal" role="form" method="get"
+					action="">
+
+					<div class="form-group">
+						Venda (data): <input type="text" name="string">
+						<button class="btn btn-success btn-sm">Buscar</button>
+					</div>
+				</form>
+			</div>
+		</div>
 		
 		<div class="row">
 			<div class="panel panel-default">
@@ -19,11 +32,11 @@
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>Item:</th>
-							<th>Marca:</th>
-							<th>Valor(un):</th>
-							<th>Quantidade:</th>
+							<th>Cliente:</th>
+							<th>Data:</th>
 							<th>Total:</th>
+							<th>Deletar:</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,11 +45,11 @@
 							<c:set var="incremento" value="${incremento + 1}"></c:set>
 							<tr>
 								<td>${incremento}</td>
-								<td>${venda.itens[0].produto.nome}</td>
-								<td>${venda.itens[0].produto.marca}</td>
-								<td><fmt:formatNumber type="number"	minFractionDigits="2">${venda.itens[0].produto.valor}</td></fmt:formatNumber>
-								<td>${venda.itens[0].quantidade}</td>
+								<td>${venda.cliente.nome}</td>
+								<td>${venda.calendar}</td>
 								<td>R$${venda.total}</td>
+								<td><a href="${linkTo[VendaController].deletar(venda.id)}"><span class="glyphicon glyphicon-trash"></span></a></td>
+								<td><a href="${linkTo[VendaController].detalhar(venda.id)}"><span>Detalhes</span></td>
 								
 							</tr>
 

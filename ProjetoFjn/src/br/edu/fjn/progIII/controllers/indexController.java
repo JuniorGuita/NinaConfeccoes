@@ -11,6 +11,7 @@ import br.com.caelum.vraptor.Result;
  * @author Antonio Siqueira
  */
 import br.edu.fjn.progIII.dao.ProdutoDAO;
+import br.edu.fjn.progIII.dao.indexDAO;
 
 @Controller
 public class indexController {
@@ -20,8 +21,8 @@ public class indexController {
 	
 	@Get("/index")
 	public void index(){
-		ProdutoDAO produtoDAO = new ProdutoDAO();
-		result.include("listarUltimosProdutos", produtoDAO.listarProdutos());
+		indexDAO indexDAO = new indexDAO();
+		result.include("listarUltimosProdutos", indexDAO.listarProdutos());
 	}
 	
 	@Post

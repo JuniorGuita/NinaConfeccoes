@@ -1,24 +1,15 @@
-import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import br.edu.fjn.progIII.componentes.UserSession;
-import br.edu.fjn.progIII.dao.LogDAO;
-import br.edu.fjn.progIII.model.Log.Log;
 
 
 public class teste {
 	public static void main(String[] args) {
-		Calendar calendar = null;
-		String operacao = "Salvar User";
-		
-		LogDAO logDAO = new LogDAO();
-		Log log = new Log();
-		
-		log.setNome("junior");
-		log.setOperacao(operacao);
-		log.setData(calendar.getInstance());
-		
-		logDAO.salvarLog(log);
-		System.out.println("loggggg");
+	
+		Date data = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+		String data2 = sdf.format(data);
+		System.out.println(data2);
 		
 	}
 }
