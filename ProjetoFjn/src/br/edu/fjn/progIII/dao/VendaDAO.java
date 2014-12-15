@@ -73,4 +73,17 @@ public class VendaDAO {
 		}
 	}
 	
+	public List<Venda> busca(String string) {
+		EntityManager manager = FabricaConexao.getGerenciador();
+		Session session = (Session) manager.getDelegate();
+		Criteria criteria = session.createCriteria(Venda.class);
+		Criterion c1 = Restrictions.ilike("calendar", "%" + string + "%");
+		
+		criteria.add(c1);
+
+		List<Venda> vendas = criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+				.list();
+		return vendas;
+	}
+	
 }

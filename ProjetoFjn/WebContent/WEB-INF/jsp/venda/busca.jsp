@@ -1,12 +1,12 @@
 <jsp:include page="../index/menu.jsp">
-   <jsp:param value="Lista Vendas" name="title"/>
+   <jsp:param value="Resultados da Busca" name="title"/>
 </jsp:include>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 </head>
 <body>
 	<div class="container">
-		<legend>Lista de Vendas Cadastrados</legend>
+		<legend>Lista de Resultados</legend>
 		
 		<div class="row">
 			<div class="col-lg-12 col-md-12">
@@ -16,7 +16,7 @@
 
 					<div class="form-group">
 						Venda (data): <input type="text" name="string" id="buscarData">
-						<button class="btn btn-success btn-sm">Buscar</button>
+						<button class="btn btn-success btn-sm">Buscar</button> <span id="buscaRegistros">${registros} registro(s) encontrado(s).</span>
 					</div>
 				</form>
 			</div>
@@ -41,7 +41,7 @@
 					</thead>
 					<tbody>
 
-						<c:forEach items="${listarVendas}" var="venda">
+						<c:forEach items="${vendas}" var="venda">
 							<c:set var="incremento" value="${incremento + 1}"></c:set>
 							<tr>
 								<td>${incremento}</td>

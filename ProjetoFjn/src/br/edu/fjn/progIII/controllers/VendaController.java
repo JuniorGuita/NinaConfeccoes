@@ -140,4 +140,13 @@ public class VendaController {
 		List<Item> lista = venda.getItens();
 		result.include("listar", lista);
 	}
+	
+	@Get("busca/")
+	public void busca(String string){
+		VendaDAO vendaDAO = new VendaDAO();
+		List<Venda> vendas = vendaDAO.busca(string);
+		result.include("vendas", vendas);
+		result.include("registros", vendas.size());
+	}
+	
 }
